@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053611C035C81000BB4B4 /* AppDelegate.swift */; };
-		901053641C035C81000BB4B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053631C035C81000BB4B4 /* ViewController.swift */; };
+		901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053631C035C81000BB4B4 /* DrawingViewController.swift */; };
 		901053671C035C81000BB4B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901053651C035C81000BB4B4 /* Main.storyboard */; };
 		901053691C035C81000BB4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 901053681C035C81000BB4B4 /* Assets.xcassets */; };
 		9010536C1C035C81000BB4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9010536A1C035C81000BB4B4 /* LaunchScreen.storyboard */; };
+		901053741C035D23000BB4B4 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053731C035D23000BB4B4 /* CanvasView.swift */; };
+		901053761C04F88B000BB4B4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053751C04F88B000BB4B4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9010535E1C035C81000BB4B4 /* Fingerpainter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fingerpainter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901053611C035C81000BB4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		901053631C035C81000BB4B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		901053631C035C81000BB4B4 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		901053661C035C81000BB4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		901053681C035C81000BB4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9010536B1C035C81000BB4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9010536D1C035C81000BB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		901053731C035D23000BB4B4 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		901053751C04F88B000BB4B4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,11 @@
 		901053601C035C81000BB4B4 /* Fingerpainter */ = {
 			isa = PBXGroup;
 			children = (
-				901053611C035C81000BB4B4 /* AppDelegate.swift */,
-				901053631C035C81000BB4B4 /* ViewController.swift */,
 				901053651C035C81000BB4B4 /* Main.storyboard */,
+				901053631C035C81000BB4B4 /* DrawingViewController.swift */,
+				901053751C04F88B000BB4B4 /* SettingsViewController.swift */,
+				901053731C035D23000BB4B4 /* CanvasView.swift */,
+				901053611C035C81000BB4B4 /* AppDelegate.swift */,
 				901053681C035C81000BB4B4 /* Assets.xcassets */,
 				9010536A1C035C81000BB4B4 /* LaunchScreen.storyboard */,
 				9010536D1C035C81000BB4B4 /* Info.plist */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				901053641C035C81000BB4B4 /* ViewController.swift in Sources */,
+				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
+				901053741C035D23000BB4B4 /* CanvasView.swift in Sources */,
+				901053761C04F88B000BB4B4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +260,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fingerpainter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -263,7 +271,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Fingerpainter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

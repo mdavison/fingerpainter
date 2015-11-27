@@ -3,20 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-<<<<<<< HEAD
-=======
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
->>>>>>> brush-setting-popover
     </dependencies>
     <scenes>
         <!--Drawing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-<<<<<<< HEAD
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
-=======
                 <viewController id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> brush-setting-popover
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,8 +17,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-=======
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ntX-Qm-4E8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -212,7 +203,6 @@
                                 </connections>
                             </button>
                         </subviews>
->>>>>>> brush-setting-popover
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

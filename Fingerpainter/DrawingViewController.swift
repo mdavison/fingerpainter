@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrawingViewController: UIViewController {
+class DrawingViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var canvas: UIImageView!
     @IBOutlet weak var tempCanvas: UIImageView!
@@ -53,6 +53,11 @@ class DrawingViewController: UIViewController {
         (1.0, 1.0, 102.0 / 255.0), // Yellow
         (1.0, 1.0, 1.0) // White
     ]
+    
+    struct Storyboard {
+        static let SettingsSegueIdentifier = "ShowSettings"
+        static let BrushSizeSegueIdentifier = "ShowBrushSize"
+    }
     
     
     override func viewDidLoad() {
@@ -106,15 +111,51 @@ class DrawingViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let settingsViewController = navigationController.topViewController as! SettingsViewController
-        settingsViewController.delegate = self
-        settingsViewController.brush = brushWidth
-        settingsViewController.opacity = opacity
-        settingsViewController.red = red
-        settingsViewController.green = green
-        settingsViewController.blue = blue
+        if segue.identifier == Storyboard.SettingsSegueIdentifier {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let settingsViewController = navigationController.topViewController as! SettingsViewController
+            settingsViewController.delegate = self
+            settingsViewController.brush = brushWidth
+            settingsViewController.opacity = opacity
+            settingsViewController.red = red
+            settingsViewController.green = green
+            settingsViewController.blue = blue
+        } else if segue.identifier == Storyboard.BrushSizeSegueIdentifier {
+            let popoverPresentationController = segue.destinationViewController.popoverPresentationController
+            popoverPresentationController!.delegate = self
+            //print(popoverPresentationController?.presentedViewController)
+            if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
+                brushSizeViewController.brush = brushWidth
+            }
+        }
     }
+    
+    
+    // MARK: - UIPopoverPresentationControllerDelegate
+    
+//    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+//        let presentedViewController = controller.presentedViewController
+//        let navigationController = UINavigationController(rootViewController: presentedViewController)
+//        let dismissButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismissPopover:")
+//        presentedViewController.navigationItem.rightBarButtonItem = dismissButton
+//        
+//        return navigationController
+//    }
+//    
+//    func dismissPopover(sender: AnyObject) {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        if let brushSizeViewController = popoverPresentationController.presentedViewController as? BrushSizeViewController {
+            brushSizeViewControllerFinished(brushSizeViewController)
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
     
     // MARK: - Actions
     
@@ -150,6 +191,7 @@ class DrawingViewController: UIViewController {
     }
     
     @IBAction func unwindToDrawingController(segue: UIStoryboardSegue) {
+        print("unwound")
         if let settingsViewController = segue.sourceViewController as? SettingsViewController {
             settingsViewControllerFinished(settingsViewController)
         }
@@ -282,6 +324,12 @@ extension DrawingViewController: SettingsViewControllerDelegate {
         customColorAlphaComponent = settingsViewController.opacity
         
         setCustomColorButton()
+    }
+}
+
+extension DrawingViewController: BrushSizeViewControllerDelegate {
+    func brushSizeViewControllerFinished(brushSizeViewController: BrushSizeViewController) {
+        self.brushWidth = brushSizeViewController.brush
     }
 }
 

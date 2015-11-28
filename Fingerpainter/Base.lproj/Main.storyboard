@@ -9,7 +9,7 @@
         <!--Drawing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="DrawingViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -174,9 +174,16 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wDV-Gh-SQG"/>
+                                    <barButtonItem title="Brush" id="w5H-4Z-PKg">
+                                        <connections>
+                                            <segue destination="Wh1-LO-34D" kind="popoverPresentation" identifier="ShowBrushSize" popoverAnchorBarButtonItem="w5H-4Z-PKg" id="U9x-7U-fjT">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem image="SettingsIcon" width="50" id="MA0-27-xGz">
                                         <connections>
-                                            <segue destination="R6r-5e-W7L" kind="showDetail" id="3yg-JJ-7pk"/>
+                                            <segue destination="R6r-5e-W7L" kind="showDetail" identifier="ShowSettings" id="3yg-JJ-7pk"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="action" id="4hR-rC-hav">
@@ -352,6 +359,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="352"/>
+        </scene>
+        <!--Brush Size View Controller-->
+        <scene sceneID="JWN-o9-LPr">
+            <objects>
+                <viewController id="Wh1-LO-34D" customClass="BrushSizeViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MKP-cf-MYd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ujy-bx-7CY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YYK-7o-tL5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-Lx-phR">
+                                <rect key="frame" x="18" y="28" width="535" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="Wh1-LO-34D" eventType="valueChanged" id="fSy-W6-c5G"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVP-8r-XJ4">
+                                <rect key="frame" x="559" y="28" width="21" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oqb-O3-OX8">
+                                <rect key="frame" x="250" y="66" width="100" height="100"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="G46-9X-Y1I"/>
+                                    <constraint firstAttribute="width" constant="100" id="QIj-E6-pK8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oqb-O3-OX8" firstAttribute="top" secondItem="Q74-Lx-phR" secondAttribute="bottom" constant="8" symbolic="YES" id="1jw-DO-Dv7"/>
+                            <constraint firstItem="uVP-8r-XJ4" firstAttribute="top" secondItem="MKP-cf-MYd" secondAttribute="bottom" constant="8" symbolic="YES" id="NgH-7U-Ejd"/>
+                            <constraint firstItem="uVP-8r-XJ4" firstAttribute="leading" secondItem="Q74-Lx-phR" secondAttribute="trailing" constant="8" symbolic="YES" id="VbP-9U-f7Z"/>
+                            <constraint firstItem="uVP-8r-XJ4" firstAttribute="trailing" secondItem="YYK-7o-tL5" secondAttribute="trailingMargin" id="YJ2-T9-46j"/>
+                            <constraint firstItem="Q74-Lx-phR" firstAttribute="leading" secondItem="YYK-7o-tL5" secondAttribute="leadingMargin" id="adU-OZ-O1b"/>
+                            <constraint firstItem="Oqb-O3-OX8" firstAttribute="centerX" secondItem="YYK-7o-tL5" secondAttribute="centerX" id="bzo-A9-9Gh"/>
+                            <constraint firstItem="Q74-Lx-phR" firstAttribute="top" secondItem="MKP-cf-MYd" secondAttribute="bottom" constant="8" symbolic="YES" id="jud-m4-Hjq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sizeImage" destination="Oqb-O3-OX8" id="eoy-Eq-kHw"/>
+                        <outlet property="sizeLabel" destination="uVP-8r-XJ4" id="4FS-O3-evd"/>
+                        <outlet property="sizeSlider" destination="Q74-Lx-phR" id="vh6-Ih-CSi"/>
+                        <segue destination="4fd-17-DWn" kind="unwind" identifier="unwindFromBrushSizeViewController" unwindAction="unwindToDrawingController:" id="hX7-Oe-AIk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HE-9k-zav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4fd-17-DWn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="1167"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="A65-gH-ciQ">

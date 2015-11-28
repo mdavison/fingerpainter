@@ -14,6 +14,7 @@
 		9010536C1C035C81000BB4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9010536A1C035C81000BB4B4 /* LaunchScreen.storyboard */; };
 		901053741C035D23000BB4B4 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053731C035D23000BB4B4 /* CanvasView.swift */; };
 		901053761C04F88B000BB4B4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053751C04F88B000BB4B4 /* SettingsViewController.swift */; };
+		901053781C08BF3B000BB4B4 /* BrushSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9010536D1C035C81000BB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		901053731C035D23000BB4B4 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		901053751C04F88B000BB4B4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSizeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				901053651C035C81000BB4B4 /* Main.storyboard */,
 				901053631C035C81000BB4B4 /* DrawingViewController.swift */,
 				901053751C04F88B000BB4B4 /* SettingsViewController.swift */,
+				901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */,
 				901053731C035D23000BB4B4 /* CanvasView.swift */,
 				901053611C035C81000BB4B4 /* AppDelegate.swift */,
 				901053681C035C81000BB4B4 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901053781C08BF3B000BB4B4 /* BrushSizeViewController.swift in Sources */,
 				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
 				901053741C035D23000BB4B4 /* CanvasView.swift in Sources */,
@@ -295,6 +299,7 @@
 				901053721C035C81000BB4B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

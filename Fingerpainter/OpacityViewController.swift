@@ -1,27 +1,27 @@
 //
-//  BrushSizeViewController.swift
+//  OpacityViewController.swift
 //  Fingerpainter
 //
-//  Created by Morgan Davison on 11/27/15.
+//  Created by Morgan Davison on 11/30/15.
 //  Copyright © 2015 Morgan Davison. All rights reserved.
 //
 
 import UIKit
 
-protocol BrushSizeViewControllerDelegate: class {
-    func brushSizeViewControllerFinished(brushSizeViewController: BrushSizeViewController)
+protocol OpacityViewControllerDelegate: class {
+    func opacityViewControllerFinished(opacityViewController: OpacityViewController)
 }
 
-class BrushSizeViewController: UIViewController {
+class OpacityViewController: UIViewController {
 
-    @IBOutlet weak var sizeSlider: UISlider!
-    @IBOutlet weak var sizeLabel: UILabel!
-    @IBOutlet weak var sizeImage: UIImageView!
+    @IBOutlet weak var opacitySlider: UISlider!
+    @IBOutlet weak var opacityLabel: UILabel!
+    @IBOutlet weak var opacityImage: UIImageView!
     
     //weak var delegate: UIPopoverPresentationControllerDelegate?
     
-    var brush: CGFloat = 10.0
     var opacity: CGFloat = 1.0
+    var brush: CGFloat = 10.0
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
@@ -40,8 +40,8 @@ class BrushSizeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sizeSlider.value = Float(brush)
-        sizeLabel.text = String(Int(brush))
+        opacitySlider.value = Float(opacity)
+        opacityLabel.text = NSString(format: "%.2f", opacity.native) as String
         
         drawPreview()
     }
@@ -63,36 +63,32 @@ class BrushSizeViewController: UIViewController {
     */
     
     
-    // MARK: - Actions
-    
     @IBAction func sliderChanged(sender: UISlider) {
-        brush = CGFloat(sender.value)
-        sizeLabel.text = String(Int(sender.value))
+        opacity = CGFloat(sender.value)
+        opacityLabel.text = NSString(format: "%.2f", opacity.native) as String
         
         drawPreview()
     }
     
-    
     private func drawPreview() {
         if (red == 1.0 && green == 1.0 && blue == 1.0) {
-            sizeImage.backgroundColor = UIColor.lightGrayColor()
+            opacityImage.backgroundColor = UIColor.lightGrayColor()
         } else {
-            sizeImage.backgroundColor = UIColor.whiteColor()
+            opacityImage.backgroundColor = UIColor.whiteColor()
         }
         
-        UIGraphicsBeginImageContext(sizeImage.frame.size)
+        UIGraphicsBeginImageContext(opacityImage.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, brush)
-        CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
         CGContextMoveToPoint(context, 50.0, 50.0)
         CGContextAddLineToPoint(context, 50.0, 50.0)
-        CGContextStrokePath(context)
         
-        sizeImage.image = UIGraphicsGetImageFromCurrentImageContext()
+        CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
+        CGContextStrokePath(context)
+        opacityImage.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
-
 
 }

@@ -34,11 +34,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var brushWidth: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     var swiped = false
-    var customColor = UIColor()
-    var customColorRedComponent: CGFloat = 0.0
-    var customColorGreenComponent: CGFloat = 0.0
-    var customColorBlueComponent: CGFloat = 0.0
-    var customColorAlphaComponent: CGFloat = 1.0
+    //var customColorRedComponent: CGFloat = 0.0
+    //var customColorGreenComponent: CGFloat = 0.0
+    //var customColorBlueComponent: CGFloat = 0.0
+    var customColor: CustomColor?
     
     var activityController: UIActivityViewController?
     
@@ -57,11 +56,16 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     struct Storyboard {
         static let SettingsSegueIdentifier = "ShowSettings"
         static let BrushSizeSegueIdentifier = "ShowBrushSize"
+        static let OpacitySegueIdentifier = "ShowOpacity"
+        static let ColorSegueIdentity = "ShowColor"
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadCustomColor()
+        setCustomColorButton()
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,6 +105,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         UIGraphicsBeginImageContext(canvas.frame.size)
         canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
         tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+        // Tried to keep it from getting distorted when device orientation changed but can't get it right
         //canvas.contentMode = .ScaleAspectFit
         canvas.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -111,44 +116,56 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Storyboard.SettingsSegueIdentifier {
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let settingsViewController = navigationController.topViewController as! SettingsViewController
-            settingsViewController.delegate = self
-            settingsViewController.brush = brushWidth
-            settingsViewController.opacity = opacity
-            settingsViewController.red = red
-            settingsViewController.green = green
-            settingsViewController.blue = blue
-        } else if segue.identifier == Storyboard.BrushSizeSegueIdentifier {
-            let popoverPresentationController = segue.destinationViewController.popoverPresentationController
-            popoverPresentationController!.delegate = self
-            //print(popoverPresentationController?.presentedViewController)
+        let identifier = segue.identifier ?? ""
+        let popoverPresentationController = segue.destinationViewController.popoverPresentationController
+        popoverPresentationController!.delegate = self
+        
+        // Hack to prevent other buttons on toolbar from being tapped while a popover is open
+        //  http://stackoverflow.com/questions/34010692/warning-attempt-to-present-viewcontroller-on-viewcontroller-which-is-already-pr
+        delay(0.1) {
+            popoverPresentationController?.passthroughViews = nil
+        }
+        
+        switch identifier {
+        case Storyboard.BrushSizeSegueIdentifier:
             if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
                 brushSizeViewController.brush = brushWidth
+                brushSizeViewController.opacity = opacity
+                brushSizeViewController.red = red
+                brushSizeViewController.green = green
+                brushSizeViewController.blue = blue
             }
+        case Storyboard.OpacitySegueIdentifier:
+            if let opacityViewController = popoverPresentationController?.presentedViewController as? OpacityViewController {
+                opacityViewController.opacity = opacity
+                opacityViewController.brush = brushWidth
+                opacityViewController.red = red
+                opacityViewController.green = green
+                opacityViewController.blue = blue
+            }
+        case Storyboard.ColorSegueIdentity:
+            if let colorViewController = popoverPresentationController?.presentedViewController as? ColorViewController {
+                colorViewController.customColor.red = red
+                colorViewController.customColor.green = green
+                colorViewController.customColor.blue = blue
+                colorViewController.brush = brushWidth
+                colorViewController.opacity = opacity
+            }
+        default:
+            break
         }
     }
     
     
     // MARK: - UIPopoverPresentationControllerDelegate
     
-//    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
-//        let presentedViewController = controller.presentedViewController
-//        let navigationController = UINavigationController(rootViewController: presentedViewController)
-//        let dismissButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "dismissPopover:")
-//        presentedViewController.navigationItem.rightBarButtonItem = dismissButton
-//        
-//        return navigationController
-//    }
-//    
-//    func dismissPopover(sender: AnyObject) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-    
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
         if let brushSizeViewController = popoverPresentationController.presentedViewController as? BrushSizeViewController {
             brushSizeViewControllerFinished(brushSizeViewController)
+        } else if let opacityViewController = popoverPresentationController.presentedViewController as? OpacityViewController {
+            opacityViewControllerFinished(opacityViewController)
+        } else if let colorViewController = popoverPresentationController.presentedViewController as? ColorViewController {
+            colorViewControllerFinished(colorViewController)
         }
     }
     
@@ -166,15 +183,17 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func colorChanged(sender: AnyObject) {
         var index = sender.tag ?? 0
         
+        // No color chosen: black
         if index < 0 || index >= colors.count {
             index = 0
         }
 
         (red, green, blue) = colors[index]
         
-        if index == colors.count - 1 {
-            opacity = 1.0
-        }
+        // Make white opaque so it can be an eraser
+//        if index == colors.count - 1 {
+//            opacity = 1.0
+//        }
         
         if let button = sender as? UIButton {
             toggleButton(button)
@@ -182,19 +201,17 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func customColorSelected(sender: UIButton) {
-        red = customColorRedComponent
-        green = customColorGreenComponent
-        blue = customColorBlueComponent
-        opacity = customColorAlphaComponent
+        red = customColor!.red
+        green = customColor!.green
+        blue = customColor!.blue
         
         toggleButton(sender)
     }
     
     @IBAction func unwindToDrawingController(segue: UIStoryboardSegue) {
-        print("unwound")
-        if let settingsViewController = segue.sourceViewController as? SettingsViewController {
-            settingsViewControllerFinished(settingsViewController)
-        }
+//        if let settingsViewController = segue.sourceViewController as? SettingsViewController {
+//            settingsViewControllerFinished(settingsViewController)
+//        }
     }
     
     @IBAction func share(sender: AnyObject) {
@@ -224,7 +241,6 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         activityController?.popoverPresentationController?.sourceView = view
         presentViewController(activityController!, animated: true, completion: nil)
     }
-    
     
     
     // This method results in more jagged line
@@ -298,38 +314,67 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     private func setCustomColorButton() {
-        customColorButton.setTitleColor(UIColor(
-            red: customColorRedComponent,
-            green: customColorGreenComponent,
-            blue: customColorBlueComponent,
-            alpha: customColorAlphaComponent),
-            forState: .Normal)
-
+        if let customColor = customColor {
+            customColorButton.setTitleColor(UIColor(
+                red: customColor.red,
+                green: customColor.green,
+                blue: customColor.blue,
+                alpha: opacity),
+                forState: .Normal)
+        }
+    }
+    
+    private func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    private func loadCustomColor() {
+        if let color = NSKeyedUnarchiver.unarchiveObjectWithFile(CustomColor.ArchiveURL.path!) as? CustomColor {
+            customColor = color
+        } else {
+            customColor = CustomColor(red: 0.0, green: 0.0, blue: 0.0)
+        }
     }
 
 }
 
-
-extension DrawingViewController: SettingsViewControllerDelegate {
-    func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
-        self.brushWidth = settingsViewController.brush
-        self.opacity = settingsViewController.opacity
-        self.red = settingsViewController.red
-        self.green = settingsViewController.green
-        self.blue = settingsViewController.blue
-
-        customColorRedComponent = settingsViewController.red
-        customColorGreenComponent = settingsViewController.green
-        customColorBlueComponent = settingsViewController.blue
-        customColorAlphaComponent = settingsViewController.opacity
-        
-        setCustomColorButton()
-    }
-}
 
 extension DrawingViewController: BrushSizeViewControllerDelegate {
     func brushSizeViewControllerFinished(brushSizeViewController: BrushSizeViewController) {
         self.brushWidth = brushSizeViewController.brush
+    }
+}
+
+extension DrawingViewController: OpacityViewControllerDelegate {
+    func opacityViewControllerFinished(opacityViewController: OpacityViewController) {
+        self.opacity = opacityViewController.opacity
+    }
+}
+
+extension DrawingViewController: ColorViewControllerDelegate {
+    func colorViewControllerFinished(colorViewController: ColorViewController) {
+        red = colorViewController.customColor.red
+        green = colorViewController.customColor.green
+        blue = colorViewController.customColor.blue
+        
+        if let customColor = customColor {
+            customColor.red = colorViewController.customColor.red
+            customColor.green = colorViewController.customColor.green
+            customColor.blue = colorViewController.customColor.blue
+            
+            // Save custom color
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(customColor, toFile: CustomColor.ArchiveURL.path!)
+            if !isSuccessfulSave {
+                print("Failed to save custom color...")
+            }
+        }
+        
+        setCustomColorButton()
     }
 }
 

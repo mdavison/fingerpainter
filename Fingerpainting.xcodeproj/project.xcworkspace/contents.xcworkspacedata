@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Fingerpainter.xcodeproj">
+      location = "self:/Users/morgan/Code/ios/Fingerpainter/Fingerpainting.xcodeproj">
    </FileRef>
 </Workspace>

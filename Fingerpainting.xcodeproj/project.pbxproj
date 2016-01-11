@@ -12,7 +12,6 @@
 		901053671C035C81000BB4B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901053651C035C81000BB4B4 /* Main.storyboard */; };
 		901053691C035C81000BB4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 901053681C035C81000BB4B4 /* Assets.xcassets */; };
 		9010536C1C035C81000BB4B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9010536A1C035C81000BB4B4 /* LaunchScreen.storyboard */; };
-		901053761C04F88B000BB4B4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053751C04F88B000BB4B4 /* SettingsViewController.swift */; };
 		901053781C08BF3B000BB4B4 /* BrushSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */; };
 		9010537A1C0C94F9000BB4B4 /* OpacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053791C0C94F9000BB4B4 /* OpacityViewController.swift */; };
 		9010537C1C0CBDDD000BB4B4 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */; };
@@ -27,7 +26,6 @@
 		901053681C035C81000BB4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9010536B1C035C81000BB4B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9010536D1C035C81000BB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		901053751C04F88B000BB4B4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushSizeViewController.swift; sourceTree = "<group>"; };
 		901053791C0C94F9000BB4B4 /* OpacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpacityViewController.swift; sourceTree = "<group>"; };
 		9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			children = (
 				901053651C035C81000BB4B4 /* Main.storyboard */,
 				901053631C035C81000BB4B4 /* DrawingViewController.swift */,
-				901053751C04F88B000BB4B4 /* SettingsViewController.swift */,
 				901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */,
 				901053791C0C94F9000BB4B4 /* OpacityViewController.swift */,
 				9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */,
@@ -111,11 +108,11 @@
 				TargetAttributes = {
 					9010535D1C035C81000BB4B4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = MTDN7L2Y29;
+						DevelopmentTeam = 2TEP68NZCD;
 					};
 				};
 			};
-			buildConfigurationList = 901053591C035C81000BB4B4 /* Build configuration list for PBXProject "Fingerpainter" */;
+			buildConfigurationList = 901053591C035C81000BB4B4 /* Build configuration list for PBXProject "Fingerpainting" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -157,7 +154,6 @@
 				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
 				9010537C1C0CBDDD000BB4B4 /* ColorViewController.swift in Sources */,
-				901053761C04F88B000BB4B4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fingerpainter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -281,17 +280,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fingerpainter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainter2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.Fingerpainting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		901053591C035C81000BB4B4 /* Build configuration list for PBXProject "Fingerpainter" */ = {
+		901053591C035C81000BB4B4 /* Build configuration list for PBXProject "Fingerpainting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9010536E1C035C81000BB4B4 /* Debug */,

@@ -29,7 +29,9 @@ class BrushSizeViewController: UIViewController {
     override var preferredContentSize: CGSize {
         get {
             if presentingViewController != nil {
-                return CGSize(width: presentingViewController!.view.bounds.width, height: 170)
+                //return CGSize(width: presentingViewController!.view.bounds.width, height: 170)
+                //return CGSize(width: presentingViewController!.view.bounds.width, height: 10)
+                return CGSizeMake(presentingViewController!.view.bounds.width, 170)
             } else {
                 return super.preferredContentSize
             }

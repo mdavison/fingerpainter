@@ -173,6 +173,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         return UIModalPresentationStyle.None
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
     
     // MARK: - Actions
     

@@ -237,24 +237,43 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         // adding a string to the activity items array prevents the icloud sharing option from coming up
         // http://stackoverflow.com/questions/25796125/ios-8-disable-icloud-photo-sharing-activity
-        activityController = UIActivityViewController(activityItems: [image, ""], applicationActivities: nil)
-        activityController?.excludedActivityTypes = [
-            UIActivityTypePrint,
-            UIActivityTypePostToWeibo,
-            UIActivityTypePostToVimeo,
-            UIActivityTypePostToTwitter,
-            UIActivityTypePostToTencentWeibo,
-            UIActivityTypePostToFlickr,
-            UIActivityTypePostToFacebook,
-            UIActivityTypeOpenInIBooks,
-            UIActivityTypeMessage,
-            UIActivityTypeMail,
-            UIActivityTypeCopyToPasteboard,
-            UIActivityTypeAssignToContact,
-            UIActivityTypeAirDrop,
-            UIActivityTypeAddToReadingList]
-        activityController?.popoverPresentationController?.sourceView = view
-        presentViewController(activityController!, animated: true, completion: nil)
+//        activityController = UIActivityViewController(activityItems: [image, ""], applicationActivities: nil)
+//        activityController?.excludedActivityTypes = [
+//            UIActivityTypePrint,
+//            UIActivityTypePostToWeibo,
+//            UIActivityTypePostToVimeo,
+//            UIActivityTypePostToTwitter,
+//            UIActivityTypePostToTencentWeibo,
+//            UIActivityTypePostToFlickr,
+//            UIActivityTypePostToFacebook,
+//            UIActivityTypeOpenInIBooks,
+//            UIActivityTypeMessage,
+//            UIActivityTypeMail,
+//            UIActivityTypeCopyToPasteboard,
+//            UIActivityTypeAssignToContact,
+//            UIActivityTypeAirDrop,
+//            UIActivityTypeAddToReadingList]
+//        activityController?.popoverPresentationController?.sourceView = view
+//        presentViewController(activityController!, animated: true, completion: nil)
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        if let error = error {
+            print(error.domain)
+            alert.title = "Error"
+            alert.message = "Unable to save image. Please check permissions for this app in Settings."
+        } else {
+            alert.title = "Saved"
+            alert.message = "Image was saved to Photos"
+        }
+        
+        alert.addAction(defaultAction)
+        presentViewController(alert, animated: true, completion:nil)
     }
     
     

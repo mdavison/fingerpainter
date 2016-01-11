@@ -184,7 +184,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7V9-ol-MYd"/>
-                                    <barButtonItem systemItem="action" id="4hR-rC-hav">
+                                    <barButtonItem systemItem="save" id="4hR-rC-hav">
                                         <connections>
                                             <action selector="share:" destination="BYZ-38-t0r" id="P4G-xw-Tpa"/>
                                         </connections>

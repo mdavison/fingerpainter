@@ -28,36 +28,45 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var lastPoint = CGPoint.zero
     var prevPoint1 = CGPoint.zero
     var prevPoint2 = CGPoint.zero
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
+//    var red: CGFloat = 0.0
+//    var green: CGFloat = 0.0
+//    var blue: CGFloat = 0.0
     var brushWidth: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     var swiped = false
-    //var customColorRedComponent: CGFloat = 0.0
-    //var customColorGreenComponent: CGFloat = 0.0
-    //var customColorBlueComponent: CGFloat = 0.0
     var customColor: CustomColor?
+    var color = UIColor.blackColor()
     
     var activityController: UIActivityViewController?
     
-    let colors: [(CGFloat, CGFloat, CGFloat)] = [
-        (0, 0, 0), // Black
-        (128.0 / 255.0, 128.0 / 255.0, 128.0 / 255.0), // Gray
-        (1.0, 0, 0), // Red
-        (0.0, 128.0 / 255.0, 1.0), // Blue
-        (0.0, 128.0 / 255.0, 0), // Green
-        (1.0, 128.0 / 255.0, 0), // Orange
-        (128.0 / 255.0, 64.0 / 255.0, 0), // Brown
-        (1.0, 1.0, 102.0 / 255.0), // Yellow
-        (1.0, 1.0, 1.0) // White
+//    let colors: [(CGFloat, CGFloat, CGFloat)] = [
+//        (0, 0, 0), // Black
+//        (128.0 / 255.0, 128.0 / 255.0, 128.0 / 255.0), // Gray
+//        (1.0, 0, 0), // Red
+//        (0.0, 128.0 / 255.0, 1.0), // Blue
+//        (0.0, 128.0 / 255.0, 0), // Green
+//        (1.0, 128.0 / 255.0, 0), // Orange
+//        (128.0 / 255.0, 64.0 / 255.0, 0), // Brown
+//        (1.0, 1.0, 102.0 / 255.0), // Yellow
+//        (1.0, 1.0, 1.0) // White
+//    ]
+    let colors = [
+        UIColor.blackColor(),
+        UIColor.lightGrayColor(),
+        UIColor.redColor(),
+        UIColor(red: 0, green: CGFloat(128.0/255.0), blue: CGFloat(1.0), alpha: 1.0), // Blue
+        UIColor(red: 0, green: CGFloat(128.0/255.0), blue: 0, alpha: 1.0), // Green
+        UIColor(red: CGFloat(1.0), green: CGFloat(128.0/255.0), blue: 0, alpha: 1.0), // Orange
+        UIColor(red: CGFloat(128.0/255.0), green: CGFloat(64.0/255.0), blue: 0, alpha: 1.0), // Brown
+        UIColor(red: CGFloat(1.0), green: CGFloat(1.0), blue: CGFloat(102.0/255.0), alpha: 1.0), // Yellow
+        UIColor(red: CGFloat(1.0), green: CGFloat(1.0), blue: CGFloat(1.0), alpha: 1.0) // White
     ]
     
     struct Storyboard {
-        static let SettingsSegueIdentifier = "ShowSettings"
+        //static let SettingsSegueIdentifier = "ShowSettings"
         static let BrushSizeSegueIdentifier = "ShowBrushSize"
         static let OpacitySegueIdentifier = "ShowOpacity"
-        static let ColorSegueIdentity = "ShowColor"
+        static let ColorSegueIdentifier = "ShowColor"
     }
     
     
@@ -131,25 +140,30 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
                 brushSizeViewController.brush = brushWidth
                 brushSizeViewController.opacity = opacity
-                brushSizeViewController.red = red
-                brushSizeViewController.green = green
-                brushSizeViewController.blue = blue
+                brushSizeViewController.color = color 
+//                brushSizeViewController.red = red
+//                brushSizeViewController.green = green
+//                brushSizeViewController.blue = blue
             }
         case Storyboard.OpacitySegueIdentifier:
             if let opacityViewController = popoverPresentationController?.presentedViewController as? OpacityViewController {
                 opacityViewController.opacity = opacity
-                opacityViewController.brush = brushWidth
-                opacityViewController.red = red
-                opacityViewController.green = green
-                opacityViewController.blue = blue
+                //opacityViewController.brush = brushWidth
+                opacityViewController.color = color
+//                opacityViewController.red = red
+//                opacityViewController.green = green
+//                opacityViewController.blue = blue
             }
-        case Storyboard.ColorSegueIdentity:
+        case Storyboard.ColorSegueIdentifier:
             if let colorViewController = popoverPresentationController?.presentedViewController as? ColorViewController {
-                colorViewController.customColor.red = red
-                colorViewController.customColor.green = green
-                colorViewController.customColor.blue = blue
+//                colorViewController.customColor.red = red
+//                colorViewController.customColor.green = green
+//                colorViewController.customColor.blue = blue
                 colorViewController.brush = brushWidth
                 colorViewController.opacity = opacity
+            }
+            if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
+                colorWheelViewController.selectedColor = customColor?.color
             }
         default:
             break
@@ -165,7 +179,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         } else if let opacityViewController = popoverPresentationController.presentedViewController as? OpacityViewController {
             opacityViewControllerFinished(opacityViewController)
         } else if let colorViewController = popoverPresentationController.presentedViewController as? ColorViewController {
-            colorViewControllerFinished(colorViewController)
+            //colorViewControllerFinished(colorViewController)
+        } else if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
+            colorWheelViewControllerFinished(colorWheelViewController)
         }
     }
     
@@ -203,7 +219,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             index = 0
         }
 
-        (red, green, blue) = colors[index]
+        //(red, green, blue) = colors[index]
+        color = colors[index]
         
         // Make white opaque so it can be an eraser
 //        if index == colors.count - 1 {
@@ -216,9 +233,12 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func customColorSelected(sender: UIButton) {
-        red = customColor!.red
-        green = customColor!.green
-        blue = customColor!.blue
+//        red = customColor!.red
+//        green = customColor!.green
+//        blue = customColor!.blue
+        if let customColor = customColor {
+            color = customColor.color
+        }
         
         toggleButton(sender)
     }
@@ -234,27 +254,6 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        // adding a string to the activity items array prevents the icloud sharing option from coming up
-        // http://stackoverflow.com/questions/25796125/ios-8-disable-icloud-photo-sharing-activity
-//        activityController = UIActivityViewController(activityItems: [image, ""], applicationActivities: nil)
-//        activityController?.excludedActivityTypes = [
-//            UIActivityTypePrint,
-//            UIActivityTypePostToWeibo,
-//            UIActivityTypePostToVimeo,
-//            UIActivityTypePostToTwitter,
-//            UIActivityTypePostToTencentWeibo,
-//            UIActivityTypePostToFlickr,
-//            UIActivityTypePostToFacebook,
-//            UIActivityTypeOpenInIBooks,
-//            UIActivityTypeMessage,
-//            UIActivityTypeMail,
-//            UIActivityTypeCopyToPasteboard,
-//            UIActivityTypeAssignToContact,
-//            UIActivityTypeAirDrop,
-//            UIActivityTypeAddToReadingList]
-//        activityController?.popoverPresentationController?.sourceView = view
-//        presentViewController(activityController!, animated: true, completion: nil)
         
         UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
@@ -288,7 +287,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, brushWidth)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+        //CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+        CGContextSetStrokeColorWithColor(context, color.CGColor)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         
         CGContextStrokePath(context)
@@ -312,7 +312,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, brushWidth)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+        //CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+        CGContextSetStrokeColorWithColor(context, color.CGColor)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         
         CGContextStrokePath(context)
@@ -348,13 +349,16 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     private func setCustomColorButton() {
+//        if let customColor = customColor {
+//            customColorButton.setTitleColor(UIColor(
+//                red: customColor.red,
+//                green: customColor.green,
+//                blue: customColor.blue,
+//                alpha: opacity),
+//                forState: .Normal)
+//        }
         if let customColor = customColor {
-            customColorButton.setTitleColor(UIColor(
-                red: customColor.red,
-                green: customColor.green,
-                blue: customColor.blue,
-                alpha: opacity),
-                forState: .Normal)
+            customColorButton.setTitleColor(customColor.color, forState: .Normal)
         }
     }
     
@@ -368,10 +372,15 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     private func loadCustomColor() {
-        if let color = NSKeyedUnarchiver.unarchiveObjectWithFile(CustomColor.ArchiveURL.path!) as? CustomColor {
-            customColor = color
+//        if let color = NSKeyedUnarchiver.unarchiveObjectWithFile(CustomColor.ArchiveURL.path!) as? CustomColor {
+//            customColor = color
+//        } else {
+//            customColor = CustomColor(red: 0.0, green: 0.0, blue: 0.0)
+//        }
+        if let cc = NSKeyedUnarchiver.unarchiveObjectWithFile(CustomColor.ArchiveURL.path!) as? CustomColor {
+            customColor = cc
         } else {
-            customColor = CustomColor(red: 0.0, green: 0.0, blue: 0.0)
+            customColor = CustomColor(color: color)
         }
     }
 
@@ -390,25 +399,47 @@ extension DrawingViewController: OpacityViewControllerDelegate {
     }
 }
 
-extension DrawingViewController: ColorViewControllerDelegate {
-    func colorViewControllerFinished(colorViewController: ColorViewController) {
-        red = colorViewController.customColor.red
-        green = colorViewController.customColor.green
-        blue = colorViewController.customColor.blue
-        
-        if let customColor = customColor {
-            customColor.red = colorViewController.customColor.red
-            customColor.green = colorViewController.customColor.green
-            customColor.blue = colorViewController.customColor.blue
+//extension DrawingViewController: ColorViewControllerDelegate {
+//    func colorViewControllerFinished(colorViewController: ColorViewController) {
+//        red = colorViewController.customColor.red
+//        green = colorViewController.customColor.green
+//        blue = colorViewController.customColor.blue
+//        
+//        if let customColor = customColor {
+//            customColor.red = colorViewController.customColor.red
+//            customColor.green = colorViewController.customColor.green
+//            customColor.blue = colorViewController.customColor.blue
+//            
+//            // Save custom color
+//            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(customColor, toFile: CustomColor.ArchiveURL.path!)
+//            if !isSuccessfulSave {
+//                print("Failed to save custom color...")
+//            }
+//        }
+//        
+//        setCustomColorButton()
+//    }
+//}
+
+extension DrawingViewController: ColorWheelViewControllerDelegate {
+    func colorWheelViewControllerFinished(colorWheelViewController: ColorWheelViewController) {
+        if let selectedColor = colorWheelViewController.selectedColor {
+            color = selectedColor
+            
+            if let customColor = customColor {
+                customColor.color = selectedColor
+            } else {
+                customColor = CustomColor(color: selectedColor)
+            }
             
             // Save custom color
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(customColor, toFile: CustomColor.ArchiveURL.path!)
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(customColor!, toFile: CustomColor.ArchiveURL.path!)
             if !isSuccessfulSave {
                 print("Failed to save custom color...")
             }
+            
+            setCustomColorButton()
         }
-        
-        setCustomColorButton()
     }
 }
 

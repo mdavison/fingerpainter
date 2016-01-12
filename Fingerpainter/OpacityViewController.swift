@@ -21,10 +21,11 @@ class OpacityViewController: UIViewController {
     //weak var delegate: UIPopoverPresentationControllerDelegate?
     
     var opacity: CGFloat = 1.0
-    var brush: CGFloat = 10.0
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
+    var brush: CGFloat = 50.0
+//    var red: CGFloat = 0.0
+//    var green: CGFloat = 0.0
+//    var blue: CGFloat = 0.0
+    var color = UIColor.blackColor()
     
     override var preferredContentSize: CGSize {
         get {
@@ -71,11 +72,11 @@ class OpacityViewController: UIViewController {
     }
     
     private func drawPreview() {
-        if (red == 1.0 && green == 1.0 && blue == 1.0) {
-            opacityImage.backgroundColor = UIColor.lightGrayColor()
-        } else {
-            opacityImage.backgroundColor = UIColor.whiteColor()
-        }
+//        if (red == 1.0 && green == 1.0 && blue == 1.0) {
+//            opacityImage.backgroundColor = UIColor.lightGrayColor()
+//        } else {
+//            opacityImage.backgroundColor = UIColor.whiteColor()
+//        }
         
         UIGraphicsBeginImageContext(opacityImage.frame.size)
         let context = UIGraphicsGetCurrentContext()
@@ -85,7 +86,9 @@ class OpacityViewController: UIViewController {
         CGContextMoveToPoint(context, 50.0, 50.0)
         CGContextAddLineToPoint(context, 50.0, 50.0)
         
-        CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
+        //CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
+        CGContextSetStrokeColorWithColor(context, color.CGColor) 
+        CGContextSetAlpha(context, opacity)
         CGContextStrokePath(context)
         opacityImage.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

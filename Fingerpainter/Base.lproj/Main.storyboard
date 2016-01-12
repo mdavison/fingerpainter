@@ -178,7 +178,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="ColorIcon" id="zeP-Ye-aHO">
                                         <connections>
-                                            <segue destination="rkf-8A-TFM" kind="popoverPresentation" identifier="ShowColor" popoverAnchorBarButtonItem="zeP-Ye-aHO" id="SX8-u2-fq8">
+                                            <segue destination="8Lz-iV-a5t" kind="popoverPresentation" identifier="ShowColor" popoverAnchorBarButtonItem="zeP-Ye-aHO" id="fEq-z7-dZV">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -591,7 +591,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2EG-DA-vvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="1167"/>
+            <point key="canvasLocation" x="2438" y="395"/>
+        </scene>
+        <!--Color Wheel View Controller-->
+        <scene sceneID="o6P-qM-gBB">
+            <objects>
+                <viewController id="8Lz-iV-a5t" customClass="ColorWheelViewController" customModule="Fingerpainter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u9G-Nj-apO"/>
+                        <viewControllerLayoutGuide type="bottom" id="5HW-51-4UK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2K9-Jj-jct">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QD6-ce-Tr6">
+                                <rect key="frame" x="260" y="28" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2dJ-8r-x3g"/>
+                                    <constraint firstAttribute="height" constant="80" id="bYe-0e-jLo"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP1-N8-wBh" customClass="ColorWheel" customModule="Fingerpainter" customModuleProvider="target">
+                                <rect key="frame" x="20" y="116" width="560" height="476"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wP1-N8-wBh" firstAttribute="leading" secondItem="2K9-Jj-jct" secondAttribute="leadingMargin" id="29s-9f-Je3"/>
+                            <constraint firstItem="QD6-ce-Tr6" firstAttribute="centerX" secondItem="2K9-Jj-jct" secondAttribute="centerX" id="5CI-HG-hKM"/>
+                            <constraint firstItem="5HW-51-4UK" firstAttribute="top" secondItem="wP1-N8-wBh" secondAttribute="bottom" constant="8" symbolic="YES" id="Bfg-li-m79"/>
+                            <constraint firstItem="QD6-ce-Tr6" firstAttribute="top" secondItem="u9G-Nj-apO" secondAttribute="bottom" constant="8" id="GeY-vp-JMX"/>
+                            <constraint firstItem="wP1-N8-wBh" firstAttribute="top" secondItem="QD6-ce-Tr6" secondAttribute="bottom" constant="8" id="I7X-cd-6g6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wP1-N8-wBh" secondAttribute="trailing" id="ze4-c1-qXf"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="O6K-7H-U8e" appends="YES" id="J56-vA-Gfz"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="colorPreview" destination="QD6-ce-Tr6" id="dHm-C2-7Ld"/>
+                        <outlet property="colorWheel" destination="wP1-N8-wBh" id="reb-MK-BqN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bg0-ou-TG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="O6K-7H-U8e">
+                    <connections>
+                        <action selector="handleTapGesture:" destination="8Lz-iV-a5t" id="Oqf-U2-AfZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2793" y="1167"/>
         </scene>
     </scenes>
     <resources>

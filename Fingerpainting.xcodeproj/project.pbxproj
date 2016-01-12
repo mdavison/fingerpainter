@@ -16,6 +16,8 @@
 		9010537A1C0C94F9000BB4B4 /* OpacityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901053791C0C94F9000BB4B4 /* OpacityViewController.swift */; };
 		9010537C1C0CBDDD000BB4B4 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */; };
 		9010537E1C0DEBC1000BB4B4 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */; };
+		903EA96C1C44614D0086BBF4 /* ColorWheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA96B1C44614D0086BBF4 /* ColorWheelViewController.swift */; };
+		903EA96F1C4463070086BBF4 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA96E1C4463070086BBF4 /* ColorWheel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		901053791C0C94F9000BB4B4 /* OpacityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpacityViewController.swift; sourceTree = "<group>"; };
 		9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		903EA96B1C44614D0086BBF4 /* ColorWheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheelViewController.swift; sourceTree = "<group>"; };
+		903EA96E1C4463070086BBF4 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,13 +71,23 @@
 				901053771C08BF3B000BB4B4 /* BrushSizeViewController.swift */,
 				901053791C0C94F9000BB4B4 /* OpacityViewController.swift */,
 				9010537B1C0CBDDD000BB4B4 /* ColorViewController.swift */,
-				9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */,
+				903EA96B1C44614D0086BBF4 /* ColorWheelViewController.swift */,
+				903EA96D1C4462E60086BBF4 /* Supporting Files */,
 				901053611C035C81000BB4B4 /* AppDelegate.swift */,
 				901053681C035C81000BB4B4 /* Assets.xcassets */,
 				9010536A1C035C81000BB4B4 /* LaunchScreen.storyboard */,
 				9010536D1C035C81000BB4B4 /* Info.plist */,
 			);
 			path = Fingerpainter;
+			sourceTree = "<group>";
+		};
+		903EA96D1C4462E60086BBF4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */,
+				903EA96E1C4463070086BBF4 /* ColorWheel.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +167,9 @@
 				901053781C08BF3B000BB4B4 /* BrushSizeViewController.swift in Sources */,
 				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
+				903EA96C1C44614D0086BBF4 /* ColorWheelViewController.swift in Sources */,
 				9010537C1C0CBDDD000BB4B4 /* ColorViewController.swift in Sources */,
+				903EA96F1C4463070086BBF4 /* ColorWheel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

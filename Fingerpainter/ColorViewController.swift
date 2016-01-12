@@ -22,7 +22,7 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var blueSlider: UISlider!
     @IBOutlet weak var blueLabel: UILabel!
     
-    var customColor = CustomColor(red: 0.0, green: 0.0, blue: 0.0)!
+    //var customColor = CustomColor(red: 0.0, green: 0.0, blue: 0.0)!
     var brush: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     
@@ -40,14 +40,14 @@ class ColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        redSlider.value = Float(customColor.red * 255.0)
-        redLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.red * 255.0)) as String)"
-        
-        greenSlider.value = Float(customColor.green * 255.0)
-        greenLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.green * 255.0)) as String)"
-        
-        blueSlider.value = Float(customColor.blue * 255.0)
-        blueLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.blue * 255.0)) as String)"
+//        redSlider.value = Float(customColor.red * 255.0)
+//        redLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.red * 255.0)) as String)"
+//        
+//        greenSlider.value = Float(customColor.green * 255.0)
+//        greenLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.green * 255.0)) as String)"
+//        
+//        blueSlider.value = Float(customColor.blue * 255.0)
+//        blueLabel.text = "⚫︎ \(NSString(format: "%d", Int(customColor.blue * 255.0)) as String)"
         
         drawPreview()
     }
@@ -69,37 +69,37 @@ class ColorViewController: UIViewController {
     */
     
     @IBAction func colorChanged(sender: UISlider) {
-        customColor.red = CGFloat(redSlider.value / 255.0)
-        redLabel.text = "⚫︎ \(NSString(format: "%d", Int(redSlider.value)) as String)"
-        customColor.green = CGFloat(greenSlider.value / 255.0)
-        greenLabel.text = "⚫︎ \(NSString(format: "%d", Int(greenSlider.value)) as String)"
-        customColor.blue = CGFloat(blueSlider.value / 255.0)
-        blueLabel.text = "⚫︎ \(NSString(format: "%d", Int(blueSlider.value)) as String)"
-                
+//        customColor.red = CGFloat(redSlider.value / 255.0)
+//        redLabel.text = "⚫︎ \(NSString(format: "%d", Int(redSlider.value)) as String)"
+//        customColor.green = CGFloat(greenSlider.value / 255.0)
+//        greenLabel.text = "⚫︎ \(NSString(format: "%d", Int(greenSlider.value)) as String)"
+//        customColor.blue = CGFloat(blueSlider.value / 255.0)
+//        blueLabel.text = "⚫︎ \(NSString(format: "%d", Int(blueSlider.value)) as String)"
+        
         drawPreview()
     }
     
     
     private func drawPreview() {
-        if (customColor.red == 1.0 && customColor.green == 1.0 && customColor.blue == 1.0) {
-            colorImage.backgroundColor = UIColor.lightGrayColor()
-        } else {
-            colorImage.backgroundColor = UIColor.whiteColor()
-        }
-        
-        // Brush Width
-        UIGraphicsBeginImageContext(colorImage.frame.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, brush)
-        CGContextSetRGBStrokeColor(context, customColor.red, customColor.green, customColor.blue, opacity)
-        CGContextMoveToPoint(context, 50.0, 50.0)
-        CGContextAddLineToPoint(context, 50.0, 50.0)
-        CGContextStrokePath(context)
-        
-        colorImage.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+//        if (customColor.red == 1.0 && customColor.green == 1.0 && customColor.blue == 1.0) {
+//            colorImage.backgroundColor = UIColor.lightGrayColor()
+//        } else {
+//            colorImage.backgroundColor = UIColor.whiteColor()
+//        }
+//        
+//        // Brush Width
+//        UIGraphicsBeginImageContext(colorImage.frame.size)
+//        let context = UIGraphicsGetCurrentContext()
+//        
+//        CGContextSetLineCap(context, CGLineCap.Round)
+//        CGContextSetLineWidth(context, brush)
+//        CGContextSetRGBStrokeColor(context, customColor.red, customColor.green, customColor.blue, opacity)
+//        CGContextMoveToPoint(context, 50.0, 50.0)
+//        CGContextAddLineToPoint(context, 50.0, 50.0)
+//        CGContextStrokePath(context)
+//        
+//        colorImage.image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
     }
 
 }

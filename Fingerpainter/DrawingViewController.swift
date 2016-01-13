@@ -38,6 +38,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var color = UIColor.blackColor()
     var canvasObject: Canvas?
     
+    // Prevent touch events being captured if color wheel is open
+    var canvasIsActive = true
+    
     var activityController: UIActivityViewController?
     
 //    let colors: [(CGFloat, CGFloat, CGFloat)] = [
@@ -85,43 +88,50 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        swiped = false
-        let touch = touches.first! as UITouch
-        prevPoint1 = touch.previousLocationInView(view)
-        prevPoint2 = touch.previousLocationInView(view)
-        lastPoint = touch.locationInView(view)
+        // Don't want to capture touch events on canvas if color wheel is open
+        if canvasIsActive {
+            swiped = false
+            let touch = touches.first! as UITouch
+            prevPoint1 = touch.previousLocationInView(view)
+            prevPoint2 = touch.previousLocationInView(view)
+            lastPoint = touch.locationInView(view)
+        }
         
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        swiped = true
-        let touch = touches.first! as UITouch
-        let currentPoint = touch.locationInView(view)
-        
-        prevPoint2 = prevPoint1
-        prevPoint1 = touch.previousLocationInView(view)
-        
-        drawLineTo(currentPoint)
-        
-        lastPoint = currentPoint
+        if canvasIsActive {
+            swiped = true
+            let touch = touches.first! as UITouch
+            let currentPoint = touch.locationInView(view)
+            
+            prevPoint2 = prevPoint1
+            prevPoint1 = touch.previousLocationInView(view)
+            
+            drawLineTo(currentPoint)
+            
+            lastPoint = currentPoint
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if !swiped {
-            // draw a single point
-            drawLineFrom(lastPoint, toPoint: lastPoint)
+        if canvasIsActive {
+            if !swiped {
+                // draw a single point
+                drawLineFrom(lastPoint, toPoint: lastPoint)
+            }
+            
+            // Merge tempCanvas into canvas
+            UIGraphicsBeginImageContext(canvas.frame.size)
+            canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+            tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+            // Tried to keep it from getting distorted when device orientation changed but can't get it right
+            //canvas.contentMode = .ScaleAspectFit
+            canvas.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            tempCanvas.image = nil
         }
-        
-        // Merge tempCanvas into canvas
-        UIGraphicsBeginImageContext(canvas.frame.size)
-        canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
-        // Tried to keep it from getting distorted when device orientation changed but can't get it right
-        //canvas.contentMode = .ScaleAspectFit
-        canvas.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        tempCanvas.image = nil        
     }
     
     // MARK: - Navigation
@@ -165,6 +175,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
                 colorViewController.opacity = opacity
             }
             if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
+                // Prevent touch events from being captured on canvas while choosing color
+                canvasIsActive = false
                 colorWheelViewController.selectedColor = customColor?.color
             }
         default:
@@ -181,6 +193,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         } else if let opacityViewController = popoverPresentationController.presentedViewController as? OpacityViewController {
             opacityViewControllerFinished(opacityViewController)
         } else if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
+            canvasIsActive = true
             colorWheelViewControllerFinished(colorWheelViewController)
         }
     }

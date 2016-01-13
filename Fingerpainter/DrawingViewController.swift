@@ -36,6 +36,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var swiped = false
     var customColor: CustomColor?
     var color = UIColor.blackColor()
+    var canvasObject: Canvas?
     
     var activityController: UIActivityViewController?
     
@@ -75,6 +76,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         loadCustomColor()
         setCustomColorButton()
+        loadCanvasObject()
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,7 +121,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         canvas.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        tempCanvas.image = nil
+        tempCanvas.image = nil        
     }
     
     // MARK: - Navigation
@@ -178,8 +180,6 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             brushSizeViewControllerFinished(brushSizeViewController)
         } else if let opacityViewController = popoverPresentationController.presentedViewController as? OpacityViewController {
             opacityViewControllerFinished(opacityViewController)
-        } else if let colorViewController = popoverPresentationController.presentedViewController as? ColorViewController {
-            //colorViewControllerFinished(colorViewController)
         } else if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
             colorWheelViewControllerFinished(colorWheelViewController)
         }
@@ -200,6 +200,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         let alert = UIAlertController(title: "Clear Canvas", message: "Are you sure you want to clear the canvas?", preferredStyle: .Alert)
         let clearAction = UIAlertAction(title: "Clear", style: .Destructive) { (alert: UIAlertAction!) -> Void in
             self.canvas.image = nil
+            self.tempCanvas.image = nil 
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (alert: UIAlertAction!) -> Void in
             //print("You pressed Cancel")
@@ -249,11 +250,18 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
 //        }
     }
     
+    // TODO: rename to "save" (see just below)
     @IBAction func share(sender: AnyObject) {
         UIGraphicsBeginImageContext(canvas.bounds.size)
         canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        let image = saveCanvasAsImage()
         
         UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
@@ -275,6 +283,17 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         presentViewController(alert, animated: true, completion:nil)
     }
     
+    func saveCanvas() {
+        let image = saveCanvasAsImage()
+        if let co = Canvas(image: image) {
+            NSKeyedArchiver.archiveRootObject(co, toFile: Canvas.ArchiveURL.path!)
+        } else {
+            print("Failed to save canvas...")
+        }
+    }
+    
+    
+    // MARK: - Private Methods
     
     // This method results in more jagged line
     private func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
@@ -382,6 +401,21 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         } else {
             customColor = CustomColor(color: color)
         }
+    }
+    
+    private func loadCanvasObject() {
+        if let savedCanvas = NSKeyedUnarchiver.unarchiveObjectWithFile(Canvas.ArchiveURL.path!) as? Canvas {
+            tempCanvas.image = savedCanvas.image
+        }
+    }
+    
+    private func saveCanvasAsImage() -> UIImage {
+        UIGraphicsBeginImageContext(canvas.bounds.size)
+        canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
     }
 
 }

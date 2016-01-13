@@ -18,6 +18,7 @@
 		9010537E1C0DEBC1000BB4B4 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */; };
 		903EA96C1C44614D0086BBF4 /* ColorWheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA96B1C44614D0086BBF4 /* ColorWheelViewController.swift */; };
 		903EA96F1C4463070086BBF4 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA96E1C4463070086BBF4 /* ColorWheel.swift */; };
+		903EA9711C45C0D80086BBF4 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA9701C45C0D80086BBF4 /* Canvas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		903EA96B1C44614D0086BBF4 /* ColorWheelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheelViewController.swift; sourceTree = "<group>"; };
 		903EA96E1C4463070086BBF4 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		903EA9701C45C0D80086BBF4 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		903EA96D1C4462E60086BBF4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				903EA9701C45C0D80086BBF4 /* Canvas.swift */,
 				9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */,
 				903EA96E1C4463070086BBF4 /* ColorWheel.swift */,
 			);
@@ -167,6 +170,7 @@
 				901053781C08BF3B000BB4B4 /* BrushSizeViewController.swift in Sources */,
 				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
+				903EA9711C45C0D80086BBF4 /* Canvas.swift in Sources */,
 				903EA96C1C44614D0086BBF4 /* ColorWheelViewController.swift in Sources */,
 				9010537C1C0CBDDD000BB4B4 /* ColorViewController.swift in Sources */,
 				903EA96F1C4463070086BBF4 /* ColorWheel.swift in Sources */,

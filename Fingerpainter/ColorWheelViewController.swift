@@ -18,6 +18,7 @@ class ColorWheelViewController: UIViewController {
     @IBOutlet weak var colorPreview: UIImageView!
     
     var selectedColor: UIColor?
+    var didSelectNewColor = false
 
     override var preferredContentSize: CGSize {
         get {
@@ -46,6 +47,7 @@ class ColorWheelViewController: UIViewController {
     @IBAction func handleTapGesture(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(colorWheel)
         selectedColor = colorWheel.colorAtPoint(point)
+        didSelectNewColor = true
         drawPreview()
     }
     

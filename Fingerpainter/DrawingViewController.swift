@@ -80,6 +80,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         loadCustomColor()
         setCustomColorButton()
         loadCanvasObject()
+        
+        // Set selected color button
+        toggleButton(blackButton)
     }
     
     override func didReceiveMemoryWarning() {
@@ -167,13 +170,13 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
 //                opacityViewController.blue = blue
             }
         case Storyboard.ColorSegueIdentifier:
-            if let colorViewController = popoverPresentationController?.presentedViewController as? ColorViewController {
-//                colorViewController.customColor.red = red
-//                colorViewController.customColor.green = green
-//                colorViewController.customColor.blue = blue
-                colorViewController.brush = brushWidth
-                colorViewController.opacity = opacity
-            }
+//            if let colorViewController = popoverPresentationController?.presentedViewController as? ColorViewController {
+////                colorViewController.customColor.red = red
+////                colorViewController.customColor.green = green
+////                colorViewController.customColor.blue = blue
+//                colorViewController.brush = brushWidth
+//                colorViewController.opacity = opacity
+//            }
             if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
                 // Prevent touch events from being captured on canvas while choosing color
                 canvasIsActive = false
@@ -194,7 +197,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             opacityViewControllerFinished(opacityViewController)
         } else if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
             canvasIsActive = true
-            colorWheelViewControllerFinished(colorWheelViewController)
+            if colorWheelViewController.didSelectNewColor {
+                toggleButton(customColorButton)
+                colorWheelViewControllerFinished(colorWheelViewController)
+            }
         }
     }
     

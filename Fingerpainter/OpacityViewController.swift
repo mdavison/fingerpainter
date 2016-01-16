@@ -18,13 +18,8 @@ class OpacityViewController: UIViewController {
     @IBOutlet weak var opacityLabel: UILabel!
     @IBOutlet weak var opacityImage: UIImageView!
     
-    //weak var delegate: UIPopoverPresentationControllerDelegate?
-    
     var opacity: CGFloat = 1.0
     var brush: CGFloat = 50.0
-//    var red: CGFloat = 0.0
-//    var green: CGFloat = 0.0
-//    var blue: CGFloat = 0.0
     var color = UIColor.blackColor()
     
     override var preferredContentSize: CGSize {
@@ -52,17 +47,6 @@ class OpacityViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func sliderChanged(sender: UISlider) {
         opacity = CGFloat(sender.value)
@@ -72,12 +56,6 @@ class OpacityViewController: UIViewController {
     }
     
     private func drawPreview() {
-//        if (red == 1.0 && green == 1.0 && blue == 1.0) {
-//            opacityImage.backgroundColor = UIColor.lightGrayColor()
-//        } else {
-//            opacityImage.backgroundColor = UIColor.whiteColor()
-//        }
-        
         UIGraphicsBeginImageContext(opacityImage.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
@@ -86,7 +64,6 @@ class OpacityViewController: UIViewController {
         CGContextMoveToPoint(context, 50.0, 50.0)
         CGContextAddLineToPoint(context, 50.0, 50.0)
         
-        //CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
         CGContextSetStrokeColorWithColor(context, color.CGColor) 
         CGContextSetAlpha(context, opacity)
         CGContextStrokePath(context)

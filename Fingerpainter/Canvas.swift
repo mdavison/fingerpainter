@@ -39,13 +39,4 @@ class Canvas: NSObject, NSCoding {
         aCoder.encodeObject(image, forKey: PropertyKey.imageKey)
     }
     
-    
-//    func save() {
-//        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(image!, toFile: archiveURL.path!)
-//        print("saved to: \(archiveURL.path!)")
-//        if !isSuccessfulSave {
-//            print("Failed to save canvas...")
-//        } 
-//    }
-    
 }

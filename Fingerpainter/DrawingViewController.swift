@@ -80,9 +80,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         if canvasIsActive {
             swiped = false
             let touch = touches.first! as UITouch
-            prevPoint1 = touch.previousLocationInView(view)
-            prevPoint2 = touch.previousLocationInView(view)
-            lastPoint = touch.locationInView(view)
+            prevPoint1 = touch.previousLocationInView(canvas)
+            prevPoint2 = touch.previousLocationInView(canvas)
+            lastPoint = touch.locationInView(canvas)
+
         }
         
     }
@@ -91,10 +92,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         if canvasIsActive {
             swiped = true
             let touch = touches.first! as UITouch
-            let currentPoint = touch.locationInView(view)
+            let currentPoint = touch.locationInView(canvas)
             
             prevPoint2 = prevPoint1
-            prevPoint1 = touch.previousLocationInView(view)
+            prevPoint1 = touch.previousLocationInView(canvas)
             
             drawLineTo(currentPoint)
             
@@ -111,8 +112,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             
             // Merge tempCanvas into canvas
             UIGraphicsBeginImageContext(canvas.frame.size)
-            canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-            tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+            canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+            tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: tempCanvas.frame.size.width, height: tempCanvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
             // Tried to keep it from getting distorted when device orientation changed but can't get it right
             //canvas.contentMode = .ScaleAspectFit
             canvas.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -225,21 +226,10 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         toggleButton(sender)
     }
     
-    
-    // TODO: rename to "save" (see just below)
-    @IBAction func share(sender: AnyObject) {
-        UIGraphicsBeginImageContext(canvas.bounds.size)
-        canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
-    }
-    
     @IBAction func save(sender: AnyObject) {
         let image = saveCanvasAsImage()
         
-        UIImageWriteToSavedPhotosAlbum(image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(DrawingViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
@@ -272,10 +262,11 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     // MARK: - Private Methods
     
     // This method results in more jagged line
+    // Used for single point
     private func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContext(canvas.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
         
         CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
         CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
@@ -294,9 +285,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     // This method results in a smoother line
     private func drawLineTo(point: CGPoint) {
-        UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContext(canvas.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height))
         
         let mid1 = CGPointMake((prevPoint1.x + prevPoint2.x)*0.5, (prevPoint1.y + prevPoint2.y)*0.5)
         let mid2 = CGPointMake((point.x + prevPoint1.x)*0.5, (point.y + prevPoint1.y)*0.5)

@@ -9,7 +9,7 @@
 import UIKit
 
 class DrawingViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-
+    
     @IBOutlet weak var canvas: UIImageView!
     @IBOutlet weak var tempCanvas: UIImageView!
     
@@ -24,6 +24,14 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBOutlet weak var whiteButton: UIButton!
     @IBOutlet weak var customColorButton: UIButton!
     
+    @IBOutlet weak var panelButtonsView: UIView!
+    @IBOutlet weak var colorsView: UIView!
+    @IBOutlet weak var brushesView: UIView!
+    @IBOutlet weak var opacityView: UIView!
+
+    @IBOutlet weak var brushButton1: UIButton!
+    @IBOutlet weak var brushButton2: UIButton!
+    @IBOutlet weak var brushButton3: UIButton!
     
     var lastPoint = CGPoint.zero
     var prevPoint1 = CGPoint.zero
@@ -256,6 +264,67 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         } else {
             print("Failed to save canvas...")
         }
+    }
+    
+    @IBAction func showBrushes(sender: UIButton) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+            self?.colorsView.alpha = 0.0
+            self?.opacityView.alpha = 0.0
+            }) { (finished) in
+                // fade in the brushes
+                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
+                    self.brushesView.alpha = 1.0
+                    }, completion: nil)
+        }
+    }
+    
+    @IBAction func showColors(sender: UIButton) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+            self?.brushesView.alpha = 0.0
+            self?.opacityView.alpha = 0.0
+        }) { (finished) in
+            // fade in the brushes
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
+                self.colorsView.alpha = 1.0
+                }, completion: nil)
+        }
+    }
+    
+    @IBAction func showOpacity(sender: UIButton) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+            self?.colorsView.alpha = 0.0
+            self?.brushesView.alpha = 0.0
+        }) { (finished) in
+            // fade in the brushes
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
+                self.opacityView.alpha = 1.0
+                }, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func changeBrushSize1(sender: UIButton) {
+        brushWidth = 1.0
+    }
+    
+    @IBAction func changeBrushSize2(sender: UIButton) {
+        brushWidth = 10.0
+    }
+    
+    @IBAction func changeBrushSize3(sender: UIButton) {
+        brushWidth = 80.0
+    }
+    
+    @IBAction func changeOpacity1(sender: UIButton) {
+        opacity = 0.1
+    }
+    
+    @IBAction func changeOpacity2(sender: UIButton) {
+        opacity = 0.5
+    }
+    
+    @IBAction func changeOpacity3(sender: UIButton) {
+        opacity = 1.0
     }
     
     

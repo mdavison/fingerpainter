@@ -13,25 +13,27 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBOutlet weak var canvas: UIImageView!
     @IBOutlet weak var tempCanvas: UIImageView!
     
-    @IBOutlet weak var blackButton: UIButton!
-    @IBOutlet weak var grayButton: UIButton!
-    @IBOutlet weak var redButton: UIButton!
-    @IBOutlet weak var blueButton: UIButton!
-    @IBOutlet weak var greenButton: UIButton!
-    @IBOutlet weak var orangeButton: UIButton!
-    @IBOutlet weak var brownButton: UIButton!
-    @IBOutlet weak var yellowButton: UIButton!
-    @IBOutlet weak var whiteButton: UIButton!
+//    @IBOutlet weak var blackButton: UIButton!
+//    @IBOutlet weak var grayButton: UIButton!
+//    @IBOutlet weak var redButton: UIButton!
+//    @IBOutlet weak var blueButton: UIButton!
+//    @IBOutlet weak var greenButton: UIButton!
+//    @IBOutlet weak var orangeButton: UIButton!
+//    @IBOutlet weak var brownButton: UIButton!
+//    @IBOutlet weak var yellowButton: UIButton!
+//    @IBOutlet weak var whiteButton: UIButton!
     @IBOutlet weak var customColorButton: UIButton!
     
-    @IBOutlet weak var panelButtonsView: UIView!
-    @IBOutlet weak var colorsView: UIView!
-    @IBOutlet weak var brushesView: UIView!
-    @IBOutlet weak var opacityView: UIView!
-
-    @IBOutlet weak var brushButton1: UIButton!
-    @IBOutlet weak var brushButton2: UIButton!
-    @IBOutlet weak var brushButton3: UIButton!
+    @IBOutlet weak var panelContainer: UIView!
+    
+//    @IBOutlet weak var panelButtonsView: UIView!
+//    @IBOutlet weak var colorsView: UIView!
+//    @IBOutlet weak var brushesView: UIView!
+//    @IBOutlet weak var opacityView: UIView!
+//
+//    @IBOutlet weak var brushButton1: UIButton!
+//    @IBOutlet weak var brushButton2: UIButton!
+//    @IBOutlet weak var brushButton3: UIButton!
     
     var lastPoint = CGPoint.zero
     var prevPoint1 = CGPoint.zero
@@ -42,6 +44,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var customColor: CustomColor?
     var color = UIColor.blackColor()
     var canvasObject: Canvas?
+    var panel: Panel?
     
     // Prevent touch events being captured if color wheel is open
     var canvasIsActive = true
@@ -70,12 +73,26 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load panel
+        panel = NSBundle.mainBundle().loadNibNamed("Panel", owner: self, options: nil).first as? Panel
+        if let panel = panel {
+            
+            panelContainer.addSubview(panel)
+            
+            panel.translatesAutoresizingMaskIntoConstraints = false
+
+            // Pin to the leading, trailing, and bottom anchors of panelContainer
+            panel.leadingAnchor.constraintEqualToAnchor(panelContainer.leadingAnchor).active = true
+            panel.trailingAnchor.constraintEqualToAnchor(panelContainer.trailingAnchor).active = true
+            panel.bottomAnchor.constraintEqualToAnchor(panelContainer.bottomAnchor).active = true
+        }
+        
         loadCustomColor()
         setCustomColorButton()
         loadCanvasObject()
         
         // Set selected color button
-        toggleButton(blackButton)
+        toggleButton(panel!.blackButton)
     }
     
     override func didReceiveMemoryWarning() {
@@ -268,36 +285,36 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     @IBAction func showBrushes(sender: UIButton) {
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
-            self?.colorsView.alpha = 0.0
-            self?.opacityView.alpha = 0.0
+            self?.panel?.colorsView.alpha = 0.0
+            self?.panel?.opacityView.alpha = 0.0
             }) { (finished) in
                 // fade in the brushes
-                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
-                    self.brushesView.alpha = 1.0
+                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: { [weak self] in
+                    self?.panel?.brushesView.alpha = 1.0
                     }, completion: nil)
         }
     }
     
     @IBAction func showColors(sender: UIButton) {
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
-            self?.brushesView.alpha = 0.0
-            self?.opacityView.alpha = 0.0
+            self?.panel?.brushesView.alpha = 0.0
+            self?.panel?.opacityView.alpha = 0.0
         }) { (finished) in
             // fade in the brushes
-            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
-                self.colorsView.alpha = 1.0
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: { [weak self] in
+                self?.panel?.colorsView.alpha = 1.0
                 }, completion: nil)
         }
     }
     
     @IBAction func showOpacity(sender: UIButton) {
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
-            self?.colorsView.alpha = 0.0
-            self?.brushesView.alpha = 0.0
+            self?.panel?.colorsView.alpha = 0.0
+            self?.panel?.brushesView.alpha = 0.0
         }) { (finished) in
             // fade in the brushes
-            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: {
-                self.opacityView.alpha = 1.0
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: { [weak self] in
+                self?.panel?.opacityView.alpha = 1.0
                 }, completion: nil)
         }
     }
@@ -378,7 +395,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     private func toggleButton(button: UIButton) {
         resetButtons()
-        if button == whiteButton {
+        if button == panel!.whiteButton {
             button.setTitle("◎", forState: UIControlState.Normal)
         } else if button == customColorButton {
             button.setTitle("♥︎", forState: UIControlState.Normal)
@@ -388,15 +405,15 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     private func resetButtons() {
-        blackButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        grayButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        redButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        blueButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        greenButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        orangeButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        brownButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        yellowButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        whiteButton.setTitle("⚪︎", forState: UIControlState.Normal)
+        panel!.blackButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.grayButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.redButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.blueButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.greenButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.orangeButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.brownButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.yellowButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.whiteButton.setTitle("⚪︎", forState: UIControlState.Normal)
         customColorButton.setTitle("♡", forState: UIControlState.Normal)
         setCustomColorButton()
     }

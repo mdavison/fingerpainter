@@ -6,6 +6,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "Paint Palette-50.png",
       "scale" : "2x"
     },
     {
@@ -17,5 +18,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

@@ -19,6 +19,7 @@ class ColorWheelViewController: UIViewController {
     
     var selectedColor: UIColor?
     var didSelectNewColor = false
+    weak var delegate: ColorWheelViewControllerDelegate?
 
     override var preferredContentSize: CGSize {
         get {
@@ -51,6 +52,11 @@ class ColorWheelViewController: UIViewController {
         drawPreview()
     }
     
+    @IBAction func done(sender: UIBarButtonItem) {
+        delegate?.colorWheelViewControllerFinished(self)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     // MARK: - Private methods

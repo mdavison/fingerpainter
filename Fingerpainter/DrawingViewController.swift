@@ -12,28 +12,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     @IBOutlet weak var canvas: UIImageView!
     @IBOutlet weak var tempCanvas: UIImageView!
-    
-//    @IBOutlet weak var blackButton: UIButton!
-//    @IBOutlet weak var grayButton: UIButton!
-//    @IBOutlet weak var redButton: UIButton!
-//    @IBOutlet weak var blueButton: UIButton!
-//    @IBOutlet weak var greenButton: UIButton!
-//    @IBOutlet weak var orangeButton: UIButton!
-//    @IBOutlet weak var brownButton: UIButton!
-//    @IBOutlet weak var yellowButton: UIButton!
-//    @IBOutlet weak var whiteButton: UIButton!
     @IBOutlet weak var customColorButton: UIButton!
-    
     @IBOutlet weak var panelContainer: UIView!
-    
-//    @IBOutlet weak var panelButtonsView: UIView!
-//    @IBOutlet weak var colorsView: UIView!
-//    @IBOutlet weak var brushesView: UIView!
-//    @IBOutlet weak var opacityView: UIView!
-//
-//    @IBOutlet weak var brushButton1: UIButton!
-//    @IBOutlet weak var brushButton2: UIButton!
-//    @IBOutlet weak var brushButton3: UIButton!
     
     var lastPoint = CGPoint.zero
     var prevPoint1 = CGPoint.zero
@@ -45,6 +25,11 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var color = UIColor.blackColor()
     var canvasObject: Canvas?
     var panel: Panel?
+    var panelIsOpen = true {
+        didSet {
+            setShadowOpacity()
+        }
+    }
     
     // Prevent touch events being captured if color wheel is open
     var canvasIsActive = true
@@ -67,6 +52,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         static let BrushSizeSegueIdentifier = "ShowBrushSize"
         static let OpacitySegueIdentifier = "ShowOpacity"
         static let ColorSegueIdentifier = "ShowColor"
+        static let ColorWheelSegueIdentifier = "ShowColorWheel"
     }
     
     
@@ -85,6 +71,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             panel.leadingAnchor.constraintEqualToAnchor(panelContainer.leadingAnchor).active = true
             panel.trailingAnchor.constraintEqualToAnchor(panelContainer.trailingAnchor).active = true
             panel.bottomAnchor.constraintEqualToAnchor(panelContainer.bottomAnchor).active = true
+            
+            setShadowOpacity()
         }
         
         loadCustomColor()
@@ -93,6 +81,26 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         // Set selected color button
         toggleButton(panel!.blackButton)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if panelIsOpen == true {
+            // Show panel
+            panelContainer.frame = CGRect(
+                x: 0.0,
+                y: view.bounds.height - panelContainer.frame.size.height,
+                width: panelContainer.frame.size.width,
+                height: panelContainer.frame.size.height)
+        } else {
+            // Hide panel
+            panelContainer.frame = CGRect(
+                x: 0.0,
+                y: view.bounds.height,
+                width: panelContainer.frame.size.width,
+                height: panelContainer.frame.size.height)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -151,36 +159,44 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let identifier = segue.identifier ?? ""
-        let popoverPresentationController = segue.destinationViewController.popoverPresentationController
-        popoverPresentationController!.delegate = self
+//        let identifier = segue.identifier ?? ""
+//        let popoverPresentationController = segue.destinationViewController.popoverPresentationController
+//        popoverPresentationController!.delegate = self
+//        
+//        // Hack to prevent other buttons on toolbar from being tapped while a popover is open
+//        //  http://stackoverflow.com/questions/34010692/warning-attempt-to-present-viewcontroller-on-viewcontroller-which-is-already-pr
+//        delay(0.1) {
+//            popoverPresentationController?.passthroughViews = nil
+//        }
+//        
+//        switch identifier {
+//        case Storyboard.BrushSizeSegueIdentifier:
+//            if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
+//                brushSizeViewController.brush = brushWidth
+//                brushSizeViewController.opacity = opacity
+//                brushSizeViewController.color = color
+//            }
+//        case Storyboard.OpacitySegueIdentifier:
+//            if let opacityViewController = popoverPresentationController?.presentedViewController as? OpacityViewController {
+//                opacityViewController.opacity = opacity
+//                opacityViewController.color = color
+//            }
+//        case Storyboard.ColorSegueIdentifier:
+//            if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
+//                // Prevent touch events from being captured on canvas while choosing color
+//                canvasIsActive = false
+//                colorWheelViewController.selectedColor = customColor?.color
+//            }
+//        default:
+//            break
+//        }
         
-        // Hack to prevent other buttons on toolbar from being tapped while a popover is open
-        //  http://stackoverflow.com/questions/34010692/warning-attempt-to-present-viewcontroller-on-viewcontroller-which-is-already-pr
-        delay(0.1) {
-            popoverPresentationController?.passthroughViews = nil
-        }
-        
-        switch identifier {
-        case Storyboard.BrushSizeSegueIdentifier:
-            if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
-                brushSizeViewController.brush = brushWidth
-                brushSizeViewController.opacity = opacity
-                brushSizeViewController.color = color
+        if segue.identifier == Storyboard.ColorWheelSegueIdentifier {
+            if let navigationController = segue.destinationViewController as? UINavigationController,
+                colorWheelViewController = navigationController.topViewController as? ColorWheelViewController {
+                
+                colorWheelViewController.delegate = self
             }
-        case Storyboard.OpacitySegueIdentifier:
-            if let opacityViewController = popoverPresentationController?.presentedViewController as? OpacityViewController {
-                opacityViewController.opacity = opacity
-                opacityViewController.color = color
-            }
-        case Storyboard.ColorSegueIdentifier:
-            if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
-                // Prevent touch events from being captured on canvas while choosing color
-                canvasIsActive = false
-                colorWheelViewController.selectedColor = customColor?.color
-            }
-        default:
-            break
         }
     }
     
@@ -228,6 +244,24 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         presentViewController(alert, animated: true, completion:nil)
     }
     
+    // This is the clear button in the panel, not the toolbar
+    @IBAction func clearCanvas(sender: UIButton) {
+        let alert = UIAlertController(title: "Clear Canvas", message: "Are you sure you want to clear the canvas?", preferredStyle: .Alert)
+        let clearAction = UIAlertAction(title: "Clear", style: .Destructive) { (alert: UIAlertAction!) -> Void in
+            self.canvas.image = nil
+            self.tempCanvas.image = nil
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (alert: UIAlertAction!) -> Void in
+            //print("You pressed Cancel")
+        }
+        
+        alert.addAction(clearAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert, animated: true, completion:nil)
+    }
+    
+    
     @IBAction func colorChanged(sender: AnyObject) {
         var index = sender.tag ?? 0
         
@@ -241,6 +275,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         if let button = sender as? UIButton {
             toggleButton(button)
         }
+        
     }
     
     @IBAction func customColorSelected(sender: UIButton) {
@@ -343,6 +378,45 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     @IBAction func changeOpacity3(sender: UIButton) {
         opacity = 1.0
     }
+    
+    @IBAction func hidePanel(sender: AnyObject) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: { [weak self] in
+            if self != nil {
+                self!.panelContainer.frame = CGRect(
+                    x: 0.0,
+                    y: self!.view.bounds.height,
+                    width: self!.panelContainer.frame.size.width,
+                    height: self!.panelContainer.frame.size.height)
+            }
+            
+            }) { [weak self] (completed) in
+                if self != nil {
+                    self!.panelIsOpen = false
+                }
+            }
+    }
+    
+    @IBAction func showPanel(sender: UIButton) {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseInOut, animations: { [weak self] in
+            if self != nil {
+                self!.panelContainer.frame = CGRect(
+                    x: 0.0,
+                    y: self!.view.bounds.height - self!.panelContainer.frame.size.height,
+                    width: self!.panelContainer.frame.size.width,
+                    height: self!.panelContainer.frame.size.height)
+            }
+            
+        }) { [weak self] (completed) in
+            if self != nil {
+                self!.panelIsOpen = true 
+            }
+        }
+    }
+    
+    @IBAction func showColorWheel(sender: UIButton) {
+        performSegueWithIdentifier(Storyboard.ColorWheelSegueIdentifier, sender: sender)
+    }
+    
     
     
     // MARK: - Private Methods
@@ -456,6 +530,14 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         
         return image
     }
+    
+    private func setShadowOpacity() {
+        if panelIsOpen {
+            panel?.layer.shadowOpacity = 0.8
+        } else {
+            panel?.layer.shadowOpacity = 0.0
+        }
+    }
 
 }
 
@@ -474,6 +556,7 @@ extension DrawingViewController: OpacityViewControllerDelegate {
 
 extension DrawingViewController: ColorWheelViewControllerDelegate {
     func colorWheelViewControllerFinished(colorWheelViewController: ColorWheelViewController) {
+        print("color wheel delegate called")
         if let selectedColor = colorWheelViewController.selectedColor {
             color = selectedColor
             

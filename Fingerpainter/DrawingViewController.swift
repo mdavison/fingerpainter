@@ -88,6 +88,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
             panel.bottomAnchor.constraintEqualToAnchor(panelContainer.bottomAnchor).active = true
             
             setShadowOpacity()
+            
+            panel.setSelectedBrushIcon(panel.brushButton3)
+            panel.setSelectedOpacityIcon(panel.opacityButton3)
         }
         
         loadCustomColor()
@@ -346,6 +349,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     @IBAction func changeBrushSize(sender: UIButton) {
         if let identifier = sender.accessibilityIdentifier {
+            panel?.setSelectedBrushIcon(sender)
+            
             switch identifier {
             case "1":
                 brushWidth = 1.0
@@ -365,6 +370,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     @IBAction func changeOpacity(sender: UIButton) {
         if let identifier = sender.accessibilityIdentifier {
+            panel?.setSelectedOpacityIcon(sender)
+            
             switch identifier {
             case "1":
                 opacity = 0.1

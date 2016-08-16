@@ -28,7 +28,8 @@
                                                 <constraint firstAttribute="width" constant="44" id="Ks2-ui-Bvq"/>
                                                 <constraint firstAttribute="height" constant="44" id="qaS-YA-dDs"/>
                                             </constraints>
-                                            <state key="normal" image="BrushButton1"/>
+                                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                            <state key="normal" backgroundImage="BrushButton1"/>
                                             <connections>
                                                 <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="iBz-NU-W94"/>
                                             </connections>
@@ -40,7 +41,7 @@
                                                 <constraint firstAttribute="width" constant="44" id="Cl8-PM-7BT"/>
                                                 <constraint firstAttribute="height" constant="44" id="Yok-0H-WPW"/>
                                             </constraints>
-                                            <state key="normal" image="BrushButton2"/>
+                                            <state key="normal" backgroundImage="BrushButton2"/>
                                             <connections>
                                                 <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="OBw-lx-Ant"/>
                                             </connections>
@@ -52,7 +53,7 @@
                                                 <constraint firstAttribute="width" constant="44" id="w4Q-UY-XoJ"/>
                                                 <constraint firstAttribute="height" constant="44" id="xhh-TB-tW3"/>
                                             </constraints>
-                                            <state key="normal" image="BrushButton3"/>
+                                            <state key="normal" backgroundImage="BrushButton3"/>
                                             <connections>
                                                 <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="lP2-oH-MTr"/>
                                             </connections>
@@ -64,7 +65,7 @@
                                                 <constraint firstAttribute="width" constant="44" id="5M3-ic-DOW"/>
                                                 <constraint firstAttribute="height" constant="44" id="s2g-Z9-WZE"/>
                                             </constraints>
-                                            <state key="normal" image="BrushButton4"/>
+                                            <state key="normal" backgroundImage="BrushButton4"/>
                                             <connections>
                                                 <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="xvX-JP-OOB"/>
                                             </connections>
@@ -76,7 +77,7 @@
                                                 <constraint firstAttribute="height" constant="44" id="CM8-Ot-TRB"/>
                                                 <constraint firstAttribute="width" constant="44" id="yn8-nT-fg3"/>
                                             </constraints>
-                                            <state key="normal" image="BrushButton5"/>
+                                            <state key="normal" backgroundImage="BrushButton5"/>
                                             <connections>
                                                 <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="YPi-5k-NeB"/>
                                             </connections>
@@ -103,7 +104,7 @@
                                                 <constraint firstAttribute="height" constant="44" id="7Dj-jZ-1w9"/>
                                                 <constraint firstAttribute="width" constant="44" id="vgI-dE-ICE"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <state key="normal" backgroundImage="OpacityIcon"/>
                                             <connections>
                                                 <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="FPq-be-n8X"/>
                                             </connections>
@@ -115,7 +116,7 @@
                                                 <constraint firstAttribute="height" constant="44" id="6dN-KX-phY"/>
                                                 <constraint firstAttribute="width" constant="44" id="Q24-2q-afi"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <state key="normal" backgroundImage="OpacityIcon"/>
                                             <connections>
                                                 <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="f4r-LY-xs7"/>
                                             </connections>
@@ -127,7 +128,7 @@
                                                 <constraint firstAttribute="width" constant="44" id="Qr0-Yq-W6y"/>
                                                 <constraint firstAttribute="height" constant="44" id="x7h-Zd-6ts"/>
                                             </constraints>
-                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <state key="normal" backgroundImage="OpacityIcon"/>
                                             <connections>
                                                 <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="BlW-Ld-w49"/>
                                             </connections>
@@ -511,6 +512,11 @@
                 <outlet property="blackButton" destination="Amo-D2-ISw" id="dRT-Ou-kja"/>
                 <outlet property="blueButton" destination="thT-BG-r4e" id="LnU-GO-NxF"/>
                 <outlet property="brownButton" destination="Zve-YY-fal" id="hCi-nE-uu3"/>
+                <outlet property="brushButton1" destination="7I3-Nc-1AQ" id="spe-El-jsA"/>
+                <outlet property="brushButton2" destination="31V-Fn-E9z" id="8SM-Jf-sr9"/>
+                <outlet property="brushButton3" destination="xjt-NA-Iy5" id="fkB-hP-mIz"/>
+                <outlet property="brushButton4" destination="2G3-RN-NJR" id="eiI-eS-ar7"/>
+                <outlet property="brushButton5" destination="RQu-uX-KK0" id="Zka-r0-Y9U"/>
                 <outlet property="brushesButton" destination="YZ3-xo-4Vc" id="G00-4I-6az"/>
                 <outlet property="brushesView" destination="6Ww-3Y-w4M" id="bpe-Qn-uv5"/>
                 <outlet property="colorsButton" destination="OAN-4Z-qON" id="bsm-N4-w4B"/>
@@ -518,6 +524,9 @@
                 <outlet property="grayButton" destination="hpO-WN-cG1" id="WCI-nN-Mtk"/>
                 <outlet property="greenButton" destination="Kiy-Qa-i6I" id="aiN-CJ-YQp"/>
                 <outlet property="opacityButton" destination="XmH-HV-8G0" id="HWf-1U-wL2"/>
+                <outlet property="opacityButton1" destination="jFG-KZ-gHx" id="3EW-3J-yBv"/>
+                <outlet property="opacityButton2" destination="RLO-Qn-eWN" id="vKw-Ei-ABb"/>
+                <outlet property="opacityButton3" destination="KeH-Mj-bfc" id="Xrf-NJ-pZU"/>
                 <outlet property="opacityView" destination="aBy-44-mSb" id="q7T-vA-eFO"/>
                 <outlet property="orangeButton" destination="Ls6-Fb-VJC" id="twM-dX-Lza"/>
                 <outlet property="panelButtonsView" destination="u6o-ZZ-zFk" id="5Bz-eh-t4p"/>
@@ -541,7 +550,6 @@
         <image name="ColorWheelIcon" width="48" height="48"/>
         <image name="HidePanel" width="25" height="25"/>
         <image name="OpacityIcon" width="25" height="25"/>
-        <image name="OpacityIconFilled" width="25" height="25"/>
         <image name="SaveIcon" width="25" height="25"/>
     </resources>
 </document>

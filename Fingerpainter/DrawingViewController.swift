@@ -37,16 +37,31 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     var activityController: UIActivityViewController?
 
     let colors = [
-        UIColor.blackColor(),
-        UIColor.lightGrayColor(),
-        UIColor.redColor(),
-        UIColor(red: 0, green: CGFloat(128.0/255.0), blue: CGFloat(1.0), alpha: 1.0), // Blue
-        UIColor(red: 0, green: CGFloat(128.0/255.0), blue: 0, alpha: 1.0), // Green
-        UIColor(red: CGFloat(1.0), green: CGFloat(128.0/255.0), blue: 0, alpha: 1.0), // Orange
-        UIColor(red: CGFloat(128.0/255.0), green: CGFloat(64.0/255.0), blue: 0, alpha: 1.0), // Brown
-        UIColor(red: CGFloat(1.0), green: CGFloat(1.0), blue: CGFloat(102.0/255.0), alpha: 1.0), // Yellow
-        UIColor(red: CGFloat(1.0), green: CGFloat(1.0), blue: CGFloat(1.0), alpha: 1.0) // White
+        Colors.Red,
+        Colors.Orange,
+        Colors.Yellow,
+        Colors.Green,
+        Colors.Blue,
+        Colors.Purple,
+        Colors.Brown,
+        Colors.Black,
+        Colors.Gray,
+        Colors.White
     ]
+    
+    struct Colors {
+        static let Red = UIColor(red: 1.0, green: 68.0/255.0, blue: 61.0/255.0, alpha: 1.0)
+        static let Orange = UIColor(red: 1.0, green: 132.0/255.0, blue: 70.0/255.0, alpha: 1.0)
+        static let Yellow = UIColor(red: 1.0, green: 230.0/255.0, blue: 89.0/255.0, alpha: 1.0)
+        static let Green = UIColor(red: 149.0/255.0, green: 1.0, blue: 123.0/255.0, alpha: 1.0)
+        static let Blue = UIColor(red: 81.0/255.0, green: 172.0/255.0, blue: 1.0, alpha: 1.0)
+        static let Purple = UIColor(red: 167.0/255.0, green: 85.0/255.0, blue: 1.0, alpha: 1.0)
+        static let Brown = UIColor(red: 128.0/255.0, green: 63.0/255.0, blue: 21.0/255.0, alpha: 1.0)
+        static let Black = UIColor.blackColor()
+        static let Gray = UIColor(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
+        static let White = UIColor.whiteColor()
+        
+    }
     
     struct Storyboard {
         static let BrushSizeSegueIdentifier = "ShowBrushSize"
@@ -159,38 +174,6 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let identifier = segue.identifier ?? ""
-//        let popoverPresentationController = segue.destinationViewController.popoverPresentationController
-//        popoverPresentationController!.delegate = self
-//        
-//        // Hack to prevent other buttons on toolbar from being tapped while a popover is open
-//        //  http://stackoverflow.com/questions/34010692/warning-attempt-to-present-viewcontroller-on-viewcontroller-which-is-already-pr
-//        delay(0.1) {
-//            popoverPresentationController?.passthroughViews = nil
-//        }
-//        
-//        switch identifier {
-//        case Storyboard.BrushSizeSegueIdentifier:
-//            if let brushSizeViewController = popoverPresentationController?.presentedViewController as? BrushSizeViewController {
-//                brushSizeViewController.brush = brushWidth
-//                brushSizeViewController.opacity = opacity
-//                brushSizeViewController.color = color
-//            }
-//        case Storyboard.OpacitySegueIdentifier:
-//            if let opacityViewController = popoverPresentationController?.presentedViewController as? OpacityViewController {
-//                opacityViewController.opacity = opacity
-//                opacityViewController.color = color
-//            }
-//        case Storyboard.ColorSegueIdentifier:
-//            if let colorWheelViewController = popoverPresentationController?.presentedViewController as? ColorWheelViewController {
-//                // Prevent touch events from being captured on canvas while choosing color
-//                canvasIsActive = false
-//                colorWheelViewController.selectedColor = customColor?.color
-//            }
-//        default:
-//            break
-//        }
-        
         if segue.identifier == Storyboard.ColorWheelSegueIdentifier {
             if let navigationController = segue.destinationViewController as? UINavigationController,
                 colorWheelViewController = navigationController.topViewController as? ColorWheelViewController {
@@ -204,11 +187,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     // MARK: - UIPopoverPresentationControllerDelegate
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        if let brushSizeViewController = popoverPresentationController.presentedViewController as? BrushSizeViewController {
-            brushSizeViewControllerFinished(brushSizeViewController)
-        } else if let opacityViewController = popoverPresentationController.presentedViewController as? OpacityViewController {
-            opacityViewControllerFinished(opacityViewController)
-        } else if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
+        if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
             canvasIsActive = true
             if colorWheelViewController.didSelectNewColor {
                 toggleButton(customColorButton)
@@ -319,11 +298,15 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func showBrushes(sender: UIButton) {
+        // Change icon
+        panel?.setSelectedPanelIcon(sender)
+        
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
+            // Fade out other panels
             self?.panel?.colorsView.alpha = 0.0
             self?.panel?.opacityView.alpha = 0.0
-            }) { (finished) in
-                // fade in the brushes
+            }) { [weak self] (finished) in
+                // Fade in the brushes
                 UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseIn, animations: { [weak self] in
                     self?.panel?.brushesView.alpha = 1.0
                     }, completion: nil)
@@ -331,6 +314,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func showColors(sender: UIButton) {
+        // Change icon
+        panel?.setSelectedPanelIcon(sender)
+        
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
             self?.panel?.brushesView.alpha = 0.0
             self?.panel?.opacityView.alpha = 0.0
@@ -343,6 +329,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     @IBAction func showOpacity(sender: UIButton) {
+        // Change icon
+        panel?.setSelectedPanelIcon(sender)
+        
         UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: { [weak self] in
             self?.panel?.colorsView.alpha = 0.0
             self?.panel?.brushesView.alpha = 0.0
@@ -355,28 +344,38 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     }
     
     
-    @IBAction func changeBrushSize1(sender: UIButton) {
-        brushWidth = 1.0
+    @IBAction func changeBrushSize(sender: UIButton) {
+        if let identifier = sender.accessibilityIdentifier {
+            switch identifier {
+            case "1":
+                brushWidth = 1.0
+            case "2":
+                brushWidth = 10.0
+            case "3":
+                brushWidth = 30.0
+            case "4":
+                brushWidth = 60.0
+            case "5":
+                brushWidth = 90.0
+            default:
+                brushWidth = 10.0
+            }
+        }
     }
     
-    @IBAction func changeBrushSize2(sender: UIButton) {
-        brushWidth = 10.0
-    }
-    
-    @IBAction func changeBrushSize3(sender: UIButton) {
-        brushWidth = 80.0
-    }
-    
-    @IBAction func changeOpacity1(sender: UIButton) {
-        opacity = 0.1
-    }
-    
-    @IBAction func changeOpacity2(sender: UIButton) {
-        opacity = 0.5
-    }
-    
-    @IBAction func changeOpacity3(sender: UIButton) {
-        opacity = 1.0
+    @IBAction func changeOpacity(sender: UIButton) {
+        if let identifier = sender.accessibilityIdentifier {
+            switch identifier {
+            case "1":
+                opacity = 0.1
+            case "2":
+                opacity = 0.5
+            case "3":
+                opacity = 1.0
+            default:
+                opacity = 1.0
+            }
+        }
     }
     
     @IBAction func hidePanel(sender: AnyObject) {
@@ -469,9 +468,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     private func toggleButton(button: UIButton) {
         resetButtons()
-        if button == panel!.whiteButton {
-            button.setTitle("◎", forState: UIControlState.Normal)
-        } else if button == customColorButton {
+        if button == customColorButton {
             button.setTitle("♥︎", forState: UIControlState.Normal)
         } else {
             button.setTitle("◉", forState: UIControlState.Normal)
@@ -487,7 +484,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         panel!.orangeButton.setTitle("⚫︎", forState: UIControlState.Normal)
         panel!.brownButton.setTitle("⚫︎", forState: UIControlState.Normal)
         panel!.yellowButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        panel!.whiteButton.setTitle("⚪︎", forState: UIControlState.Normal)
+        panel!.whiteButton.setTitle("⚫︎", forState: UIControlState.Normal)
+        panel!.purpleButton.setTitle("⚫︎", forState: UIControlState.Normal)
         customColorButton.setTitle("♡", forState: UIControlState.Normal)
         setCustomColorButton()
     }
@@ -542,21 +540,9 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
 }
 
 
-extension DrawingViewController: BrushSizeViewControllerDelegate {
-    func brushSizeViewControllerFinished(brushSizeViewController: BrushSizeViewController) {
-        self.brushWidth = brushSizeViewController.brush
-    }
-}
-
-extension DrawingViewController: OpacityViewControllerDelegate {
-    func opacityViewControllerFinished(opacityViewController: OpacityViewController) {
-        self.opacity = opacityViewController.opacity
-    }
-}
 
 extension DrawingViewController: ColorWheelViewControllerDelegate {
     func colorWheelViewControllerFinished(colorWheelViewController: ColorWheelViewController) {
-        print("color wheel delegate called")
         if let selectedColor = colorWheelViewController.selectedColor {
             color = selectedColor
             

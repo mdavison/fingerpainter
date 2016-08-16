@@ -18,87 +18,180 @@
                         <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ww-3Y-w4M">
                             <rect key="frame" x="0.0" y="44" width="556" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I3-Nc-1AQ">
-                                    <rect key="frame" x="8" y="14" width="64" height="47"/>
-                                    <state key="normal" title="Small"/>
-                                    <connections>
-                                        <action selector="changeBrushSize1:" destination="-1" eventType="touchUpInside" id="EzY-8p-Dvz"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31V-Fn-E9z">
-                                    <rect key="frame" x="153" y="23" width="31" height="30"/>
-                                    <state key="normal" title="Med"/>
-                                    <connections>
-                                        <action selector="changeBrushSize2:" destination="-1" eventType="touchUpInside" id="Lcz-lb-Nhj"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQu-uX-KK0">
-                                    <rect key="frame" x="341" y="22" width="39" height="30"/>
-                                    <state key="normal" title="Large"/>
-                                    <connections>
-                                        <action selector="changeBrushSize3:" destination="-1" eventType="touchUpInside" id="idJ-GC-r08"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AVV-66-dLd">
+                                    <rect key="frame" x="148" y="24" width="260" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I3-Nc-1AQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" hint="The smallest brush" identifier="1" label="Brush 1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Ks2-ui-Bvq"/>
+                                                <constraint firstAttribute="height" constant="44" id="qaS-YA-dDs"/>
+                                            </constraints>
+                                            <state key="normal" image="BrushButton1"/>
+                                            <connections>
+                                                <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="iBz-NU-W94"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31V-Fn-E9z">
+                                            <rect key="frame" x="54" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="2" label="Brush 2"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Cl8-PM-7BT"/>
+                                                <constraint firstAttribute="height" constant="44" id="Yok-0H-WPW"/>
+                                            </constraints>
+                                            <state key="normal" image="BrushButton2"/>
+                                            <connections>
+                                                <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="OBw-lx-Ant"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-NA-Iy5">
+                                            <rect key="frame" x="108" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="3" label="Brush 3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="w4Q-UY-XoJ"/>
+                                                <constraint firstAttribute="height" constant="44" id="xhh-TB-tW3"/>
+                                            </constraints>
+                                            <state key="normal" image="BrushButton3"/>
+                                            <connections>
+                                                <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="lP2-oH-MTr"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2G3-RN-NJR">
+                                            <rect key="frame" x="162" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="4" label="Brush 4"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="5M3-ic-DOW"/>
+                                                <constraint firstAttribute="height" constant="44" id="s2g-Z9-WZE"/>
+                                            </constraints>
+                                            <state key="normal" image="BrushButton4"/>
+                                            <connections>
+                                                <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="xvX-JP-OOB"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQu-uX-KK0">
+                                            <rect key="frame" x="216" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" hint="The largest brush" identifier="5" label="Brush 5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="CM8-Ot-TRB"/>
+                                                <constraint firstAttribute="width" constant="44" id="yn8-nT-fg3"/>
+                                            </constraints>
+                                            <state key="normal" image="BrushButton5"/>
+                                            <connections>
+                                                <action selector="changeBrushSize:" destination="-1" eventType="touchUpInside" id="YPi-5k-NeB"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="AVV-66-dLd" secondAttribute="bottom" constant="20" id="57F-JP-QTS"/>
+                                <constraint firstItem="AVV-66-dLd" firstAttribute="centerX" secondItem="6Ww-3Y-w4M" secondAttribute="centerX" id="fQ6-US-MZb"/>
+                            </constraints>
                         </view>
                         <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-44-mSb">
                             <rect key="frame" x="0.0" y="44" width="556" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-KZ-gHx">
-                                    <rect key="frame" x="43" y="14" width="64" height="47"/>
-                                    <state key="normal" title="opacity1"/>
-                                    <connections>
-                                        <action selector="changeOpacity1:" destination="-1" eventType="touchUpInside" id="iGu-AE-PtB"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLO-Qn-eWN">
-                                    <rect key="frame" x="188" y="23" width="31" height="30"/>
-                                    <state key="normal" title="opacity2"/>
-                                    <connections>
-                                        <action selector="changeOpacity2:" destination="-1" eventType="touchUpInside" id="yfD-ti-1BW"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeH-Mj-bfc">
-                                    <rect key="frame" x="376" y="22" width="39" height="30"/>
-                                    <state key="normal" title="opacity3"/>
-                                    <connections>
-                                        <action selector="changeOpacity3:" destination="-1" eventType="touchUpInside" id="4yj-h4-Sad"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EfH-Qe-Tsv">
+                                    <rect key="frame" x="192" y="24" width="172" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-KZ-gHx">
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" hint="Transparent" identifier="1" label="Opacity 1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="7Dj-jZ-1w9"/>
+                                                <constraint firstAttribute="width" constant="44" id="vgI-dE-ICE"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <connections>
+                                                <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="FPq-be-n8X"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLO-Qn-eWN">
+                                            <rect key="frame" x="64" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" hint="Semi-Transparent" identifier="2" label="Opacity 2"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="6dN-KX-phY"/>
+                                                <constraint firstAttribute="width" constant="44" id="Q24-2q-afi"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <connections>
+                                                <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="f4r-LY-xs7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeH-Mj-bfc">
+                                            <rect key="frame" x="128" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" hint="Opaque" identifier="3" label="Opacity 3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Qr0-Yq-W6y"/>
+                                                <constraint firstAttribute="height" constant="44" id="x7h-Zd-6ts"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="OpacityIconFilled"/>
+                                            <connections>
+                                                <action selector="changeOpacity:" destination="-1" eventType="touchUpInside" id="BlW-Ld-w49"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="EfH-Qe-Tsv" firstAttribute="centerX" secondItem="aBy-44-mSb" secondAttribute="centerX" id="bNd-kg-qfa"/>
+                                <constraint firstAttribute="bottom" secondItem="EfH-Qe-Tsv" secondAttribute="bottom" constant="20" id="lIl-Gg-7Sr"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7e-VE-fp3">
                             <rect key="frame" x="0.0" y="44" width="556" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-mq-bSF">
-                                    <rect key="frame" x="464" y="8" width="84" height="72"/>
-                                    <state key="normal" title="Color Wheel"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-mq-bSF">
+                                    <rect key="frame" x="476" y="8" width="72" height="72"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="72" id="GRe-fJ-viv"/>
+                                        <constraint firstAttribute="width" constant="72" id="y1D-dO-3Uq"/>
+                                    </constraints>
+                                    <state key="normal" backgroundImage="ColorWheelIcon"/>
                                     <connections>
                                         <action selector="showColorWheel:" destination="-1" eventType="touchUpInside" id="wJU-gm-oFT"/>
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIU-Hs-hfr">
-                                    <rect key="frame" x="8" y="16" width="396" height="44"/>
+                                    <rect key="frame" x="58" y="16" width="440" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls6-Fb-VJC">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyR-wO-IaA">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="purple" label="Purple"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="9hM-ie-Lrc"/>
+                                                <constraint firstAttribute="width" constant="44" id="Sdp-ih-PLU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                            <state key="normal" title="⚫︎">
+                                                <color key="titleColor" red="1" green="0.26666666666666666" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="ZVD-ne-MQX"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls6-Fb-VJC">
+                                            <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="black" label="Black"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="1Qi-1e-gF3"/>
                                                 <constraint firstAttribute="height" constant="44" id="WFK-ml-T7I"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="0.51764705882352935" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <state key="highlighted" title="◉"/>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="g9z-pt-4ao"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-ly-7gJ">
-                                            <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-ly-7gJ">
+                                            <rect key="frame" x="88" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="gray" label="Gray"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="iPl-wv-qhD"/>
                                                 <constraint firstAttribute="width" constant="44" id="wh0-0d-sXy">
@@ -107,105 +200,112 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="0.90196078431372551" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="pUL-7q-7cP"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kiy-Qa-i6I">
-                                            <rect key="frame" x="88" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kiy-Qa-i6I">
+                                            <rect key="frame" x="132" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="red" label="Red"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="fTt-zD-3iR"/>
                                                 <constraint firstAttribute="width" constant="44" id="wJD-O6-8MI"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.58561347004727082" green="1" blue="0.48119215366377166" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="Tp8-Rg-Azb"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thT-BG-r4e">
-                                            <rect key="frame" x="132" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thT-BG-r4e">
+                                            <rect key="frame" x="176" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="blue" label="Blue"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="58w-An-n07"/>
                                                 <constraint firstAttribute="height" constant="44" id="f7G-hb-bux"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.31764705882352939" green="0.67450980392156867" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="xpo-Xb-euO"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhL-mb-uUV">
-                                            <rect key="frame" x="176" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhL-mb-uUV">
+                                            <rect key="frame" x="220" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="green" label="Green"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="7F1-Va-hmB"/>
                                                 <constraint firstAttribute="width" constant="44" id="IPE-m4-JBr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.65490196078431373" green="0.33333333333333331" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="awe-D2-78f"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-YY-fal">
-                                            <rect key="frame" x="220" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-YY-fal">
+                                            <rect key="frame" x="264" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="orange" label="Orange"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="kOW-cf-zDG"/>
                                                 <constraint firstAttribute="height" constant="44" id="ma6-7g-1ag"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.50196078431372548" green="0.24705882352941178" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="Trb-NX-RgD"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amo-D2-ISw">
-                                            <rect key="frame" x="264" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amo-D2-ISw">
+                                            <rect key="frame" x="308" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="brown" label="Brown"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="Otu-C1-WKr"/>
                                                 <constraint firstAttribute="height" constant="44" id="oP9-Tl-0Pp"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="BIs-OJ-I19"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpO-WN-cG1">
-                                            <rect key="frame" x="308" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpO-WN-cG1">
+                                            <rect key="frame" x="352" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="yellow" label="Yellow"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="2Pu-Bi-J5u"/>
                                                 <constraint firstAttribute="height" constant="44" id="K9p-MM-IsZ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                             <state key="normal" title="⚫︎">
-                                                <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="ZG4-hR-cSe"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr0-M8-yjV">
-                                            <rect key="frame" x="352" y="0.0" width="44" height="44"/>
+                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr0-M8-yjV">
+                                            <rect key="frame" x="396" y="0.0" width="44" height="44"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="white" label="White"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="OC1-QQ-Sn5"/>
                                                 <constraint firstAttribute="height" constant="44" id="PqE-og-JZu"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                            <state key="normal" title="⚪︎">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="⚫︎">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="Gje-7y-94R"/>
@@ -216,16 +316,24 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="aIU-Hs-hfr" firstAttribute="centerX" secondItem="O7e-VE-fp3" secondAttribute="centerX" id="4qt-MD-yFc"/>
                                 <constraint firstItem="aIU-Hs-hfr" firstAttribute="top" secondItem="O7e-VE-fp3" secondAttribute="topMargin" id="LWI-Rn-KDS"/>
+                                <constraint firstItem="mjK-mq-bSF" firstAttribute="leading" secondItem="aIU-Hs-hfr" secondAttribute="trailing" id="YGO-Pe-I57"/>
                                 <constraint firstItem="aIU-Hs-hfr" firstAttribute="leading" secondItem="O7e-VE-fp3" secondAttribute="leadingMargin" id="YP2-w9-qtH"/>
                                 <constraint firstItem="mjK-mq-bSF" firstAttribute="bottom" secondItem="O7e-VE-fp3" secondAttribute="bottomMargin" id="egX-G8-JEj"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="mjK-mq-bSF" secondAttribute="trailing" id="fc4-Oh-AJ3"/>
                                 <constraint firstItem="mjK-mq-bSF" firstAttribute="top" secondItem="O7e-VE-fp3" secondAttribute="topMargin" id="gzV-zg-JxQ"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="aIU-Hs-hfr" secondAttribute="bottom" constant="20" id="wUs-Oq-aBc"/>
+                                <constraint firstItem="aIU-Hs-hfr" firstAttribute="leading" secondItem="O7e-VE-fp3" secondAttribute="leadingMargin" id="xTP-Fr-eiW"/>
+                                <constraint firstItem="aIU-Hs-hfr" firstAttribute="centerX" secondItem="O7e-VE-fp3" secondAttribute="centerX" id="zzn-OW-bPJ"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="4qt-MD-yFc"/>
                                     <exclude reference="LWI-Rn-KDS"/>
+                                    <exclude reference="YP2-w9-qtH"/>
+                                    <exclude reference="xTP-Fr-eiW"/>
+                                    <exclude reference="YGO-Pe-I57"/>
                                 </mask>
                             </variation>
                         </view>
@@ -241,7 +349,7 @@
                                                 <constraint firstAttribute="width" constant="44" id="Eaq-DD-rzW"/>
                                                 <constraint firstAttribute="height" constant="44" id="nU1-HV-YSe"/>
                                             </constraints>
-                                            <state key="normal" image="ColorIcon"/>
+                                            <state key="normal" image="ColorIconFilled"/>
                                             <connections>
                                                 <action selector="showColors:" destination="-1" eventType="touchUpInside" id="RcE-Fj-4m7"/>
                                             </connections>
@@ -306,16 +414,16 @@
                                         <action selector="hidePanel:" destination="-1" eventType="touchUpInside" id="kJY-1v-5o2"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEt-Ms-CuU">
-                                    <rect key="frame" x="7" y="51" width="32" height="30"/>
-                                    <state key="normal" title="save"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEt-Ms-CuU">
+                                    <rect key="frame" x="-8" y="53" width="62" height="25"/>
+                                    <state key="normal" image="SaveIcon"/>
                                     <connections>
                                         <action selector="save:" destination="-1" eventType="touchUpInside" id="8GR-gm-Vl1"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXL-ya-9MM">
-                                    <rect key="frame" x="8" y="94" width="30" height="30"/>
-                                    <state key="normal" title="clr"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXL-ya-9MM">
+                                    <rect key="frame" x="11" y="96" width="25" height="25"/>
+                                    <state key="normal" image="ClearIcon"/>
                                     <connections>
                                         <action selector="clearCanvas:" destination="-1" eventType="touchUpInside" id="uPy-zV-lcL"/>
                                     </connections>
@@ -400,27 +508,40 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="blackButton" destination="Ls6-Fb-VJC" id="82z-Uk-iFJ"/>
-                <outlet property="blueButton" destination="thT-BG-r4e" id="CL7-Tq-zVk"/>
-                <outlet property="brownButton" destination="Amo-D2-ISw" id="s8C-mD-MlS"/>
+                <outlet property="blackButton" destination="Amo-D2-ISw" id="dRT-Ou-kja"/>
+                <outlet property="blueButton" destination="thT-BG-r4e" id="LnU-GO-NxF"/>
+                <outlet property="brownButton" destination="Zve-YY-fal" id="hCi-nE-uu3"/>
+                <outlet property="brushesButton" destination="YZ3-xo-4Vc" id="G00-4I-6az"/>
                 <outlet property="brushesView" destination="6Ww-3Y-w4M" id="bpe-Qn-uv5"/>
+                <outlet property="colorsButton" destination="OAN-4Z-qON" id="bsm-N4-w4B"/>
                 <outlet property="colorsView" destination="O7e-VE-fp3" id="WVX-UX-JBo"/>
-                <outlet property="grayButton" destination="nwx-ly-7gJ" id="Rgp-Bf-4tn"/>
-                <outlet property="greenButton" destination="QhL-mb-uUV" id="ZWv-Ux-a9m"/>
+                <outlet property="grayButton" destination="hpO-WN-cG1" id="WCI-nN-Mtk"/>
+                <outlet property="greenButton" destination="Kiy-Qa-i6I" id="aiN-CJ-YQp"/>
+                <outlet property="opacityButton" destination="XmH-HV-8G0" id="HWf-1U-wL2"/>
                 <outlet property="opacityView" destination="aBy-44-mSb" id="q7T-vA-eFO"/>
-                <outlet property="orangeButton" destination="Zve-YY-fal" id="Wov-ga-wib"/>
+                <outlet property="orangeButton" destination="Ls6-Fb-VJC" id="twM-dX-Lza"/>
                 <outlet property="panelButtonsView" destination="u6o-ZZ-zFk" id="5Bz-eh-t4p"/>
-                <outlet property="redButton" destination="Kiy-Qa-i6I" id="nQw-Yx-cyt"/>
-                <outlet property="whiteButton" destination="Lr0-M8-yjV" id="WzK-CT-fZc"/>
-                <outlet property="yellowButton" destination="hpO-WN-cG1" id="3T9-9n-gOS"/>
+                <outlet property="purpleButton" destination="QhL-mb-uUV" id="hYA-4Z-S6T"/>
+                <outlet property="redButton" destination="hyR-wO-IaA" id="yR3-v0-8MY"/>
+                <outlet property="whiteButton" destination="Lr0-M8-yjV" id="52K-Fh-RH0"/>
+                <outlet property="yellowButton" destination="nwx-ly-7gJ" id="CEF-JT-VfU"/>
             </connections>
             <point key="canvasLocation" x="249" y="597"/>
         </view>
     </objects>
     <resources>
+        <image name="BrushButton1" width="44" height="44"/>
+        <image name="BrushButton2" width="44" height="44"/>
+        <image name="BrushButton3" width="44" height="44"/>
+        <image name="BrushButton4" width="44" height="44"/>
+        <image name="BrushButton5" width="44" height="44"/>
         <image name="BrushIcon" width="25" height="25"/>
-        <image name="ColorIcon" width="25" height="25"/>
+        <image name="ClearIcon" width="25" height="25"/>
+        <image name="ColorIconFilled" width="25" height="25"/>
+        <image name="ColorWheelIcon" width="48" height="48"/>
         <image name="HidePanel" width="25" height="25"/>
         <image name="OpacityIcon" width="25" height="25"/>
+        <image name="OpacityIconFilled" width="25" height="25"/>
+        <image name="SaveIcon" width="25" height="25"/>
     </resources>
 </document>

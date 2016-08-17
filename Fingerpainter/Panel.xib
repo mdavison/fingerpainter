@@ -156,8 +156,8 @@
                                         <action selector="showColorWheel:" destination="-1" eventType="touchUpInside" id="wJU-gm-oFT"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
-                                    <rect key="frame" x="42" y="24" width="484" height="44"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
+                                    <rect key="frame" x="36" y="24" width="484" height="44"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-X7-3th">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
@@ -242,7 +242,7 @@
                                                 </button>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-lZ-r0W">
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-lZ-r0W">
                                             <rect key="frame" x="220" y="0.0" width="264" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-fx-xoi">
@@ -320,7 +320,7 @@
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="iVL-LX-fEa"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
                                                     <rect key="frame" x="220" y="0.0" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="EPk-rv-jRm"/>

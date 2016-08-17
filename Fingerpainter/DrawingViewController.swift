@@ -26,13 +26,9 @@ class DrawingViewController: UIViewController {
     var panel: Panel?
     var panelIsOpen = true {
         didSet {
-            setShadowOpacity()
+            setPanelShadowOpacity()
         }
     }
-    
-    // Prevent touch events being captured if color wheel is open
-    var canvasIsActive = true
-    
     var activityController: UIActivityViewController?
 
     let colors = [
@@ -47,20 +43,6 @@ class DrawingViewController: UIViewController {
         Colors.Gray,
         Colors.White
     ]
-    
-    struct Colors {
-        static let Red = UIColor(red: 1.0, green: 68.0/255.0, blue: 61.0/255.0, alpha: 1.0)
-        static let Orange = UIColor(red: 1.0, green: 132.0/255.0, blue: 70.0/255.0, alpha: 1.0)
-        static let Yellow = UIColor(red: 1.0, green: 230.0/255.0, blue: 89.0/255.0, alpha: 1.0)
-        static let Green = UIColor(red: 149.0/255.0, green: 1.0, blue: 123.0/255.0, alpha: 1.0)
-        static let Blue = UIColor(red: 81.0/255.0, green: 172.0/255.0, blue: 1.0, alpha: 1.0)
-        static let Purple = UIColor(red: 167.0/255.0, green: 85.0/255.0, blue: 1.0, alpha: 1.0)
-        static let Brown = UIColor(red: 128.0/255.0, green: 63.0/255.0, blue: 21.0/255.0, alpha: 1.0)
-        static let Black = UIColor.blackColor()
-        static let Gray = UIColor(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
-        static let White = UIColor.whiteColor()
-        
-    }
     
     struct Storyboard {
         static let BrushSizeSegueIdentifier = "ShowBrushSize"
@@ -86,7 +68,7 @@ class DrawingViewController: UIViewController {
             panel.trailingAnchor.constraintEqualToAnchor(panelContainer.trailingAnchor).active = true
             panel.bottomAnchor.constraintEqualToAnchor(panelContainer.bottomAnchor).active = true
             
-            setShadowOpacity()
+            setPanelShadowOpacity()
             
             panel.setSelectedBrushIcon(panel.brushButton3)
             panel.setSelectedOpacityIcon(panel.opacityButton3)
@@ -126,51 +108,42 @@ class DrawingViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        // Don't want to capture touch events on canvas if color wheel is open
-        if canvasIsActive {
-            swiped = false
-            let touch = touches.first! as UITouch
-            prevPoint1 = touch.previousLocationInView(canvas)
-            prevPoint2 = touch.previousLocationInView(canvas)
-            lastPoint = touch.locationInView(canvas)
-
-        }
-        
+        swiped = false
+        let touch = touches.first! as UITouch
+        prevPoint1 = touch.previousLocationInView(canvas)
+        prevPoint2 = touch.previousLocationInView(canvas)
+        lastPoint = touch.locationInView(canvas)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if canvasIsActive {
-            swiped = true
-            let touch = touches.first! as UITouch
-            let currentPoint = touch.locationInView(canvas)
-            
-            prevPoint2 = prevPoint1
-            prevPoint1 = touch.previousLocationInView(canvas)
-            
-            drawLineTo(currentPoint)
-            
-            lastPoint = currentPoint
-        }
+        swiped = true
+        let touch = touches.first! as UITouch
+        let currentPoint = touch.locationInView(canvas)
+        
+        prevPoint2 = prevPoint1
+        prevPoint1 = touch.previousLocationInView(canvas)
+        
+        drawLineTo(currentPoint)
+        
+        lastPoint = currentPoint
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if canvasIsActive {
-            if !swiped {
-                // draw a single point
-                drawLineFrom(lastPoint, toPoint: lastPoint)
-            }
-            
-            // Merge tempCanvas into canvas
-            UIGraphicsBeginImageContext(canvas.frame.size)
-            canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-            tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: tempCanvas.frame.size.width, height: tempCanvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
-            // Tried to keep it from getting distorted when device orientation changed but can't get it right
-            //canvas.contentMode = .ScaleAspectFit
-            canvas.image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            tempCanvas.image = nil
+        if !swiped {
+            // draw a single point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
         }
+        
+        // Merge tempCanvas into canvas
+        UIGraphicsBeginImageContext(canvas.frame.size)
+        canvas.image?.drawInRect(CGRect(x: 0, y: 0, width: canvas.frame.size.width, height: canvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+        tempCanvas.image?.drawInRect(CGRect(x: 0, y: 0, width: tempCanvas.frame.size.width, height: tempCanvas.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+        // Tried to keep it from getting distorted when device orientation changed but can't get it right
+        //canvas.contentMode = .ScaleAspectFit
+        canvas.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        tempCanvas.image = nil
     }
     
     // MARK: - Navigation
@@ -181,6 +154,7 @@ class DrawingViewController: UIViewController {
                 colorWheelViewController = navigationController.topViewController as? ColorWheelViewController {
                 
                 colorWheelViewController.delegate = self
+                colorWheelViewController.selectedColor = customColor?.color
             }
         }
     }
@@ -189,23 +163,6 @@ class DrawingViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func clearImage(sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Clear Canvas", message: "Are you sure you want to clear the canvas?", preferredStyle: .Alert)
-        let clearAction = UIAlertAction(title: "Clear", style: .Destructive) { (alert: UIAlertAction!) -> Void in
-            self.canvas.image = nil
-            self.tempCanvas.image = nil 
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (alert: UIAlertAction!) -> Void in
-            //print("You pressed Cancel")
-        }
-        
-        alert.addAction(clearAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated: true, completion:nil)
-    }
-    
-    // This is the clear button in the panel, not the toolbar
     @IBAction func clearCanvas(sender: UIButton) {
         let alert = UIAlertController(title: "Clear Canvas", message: "Are you sure you want to clear the canvas?", preferredStyle: .Alert)
         let clearAction = UIAlertAction(title: "Clear", style: .Destructive) { (alert: UIAlertAction!) -> Void in
@@ -482,14 +439,14 @@ class DrawingViewController: UIViewController {
         }
     }
     
-    private func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
+//    private func delay(delay:Double, closure:()->()) {
+//        dispatch_after(
+//            dispatch_time(
+//                DISPATCH_TIME_NOW,
+//                Int64(delay * Double(NSEC_PER_SEC))
+//            ),
+//            dispatch_get_main_queue(), closure)
+//    }
     
     private func loadCustomColor() {
         if let cc = NSKeyedUnarchiver.unarchiveObjectWithFile(CustomColor.ArchiveURL.path!) as? CustomColor {
@@ -515,7 +472,7 @@ class DrawingViewController: UIViewController {
         return image
     }
     
-    private func setShadowOpacity() {
+    private func setPanelShadowOpacity() {
         if panelIsOpen {
             panel?.layer.shadowOpacity = 0.8
         } else {

@@ -18,6 +18,7 @@
 		903EA9711C45C0D80086BBF4 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA9701C45C0D80086BBF4 /* Canvas.swift */; };
 		9085D0861D58C5B30057F83C /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9085D0851D58C5B30057F83C /* Panel.swift */; };
 		9085D08A1D58E2350057F83C /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9085D0891D58E2350057F83C /* Panel.xib */; };
+		90F2B3881D649ADA00B08526 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B3871D649ADA00B08526 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		903EA9701C45C0D80086BBF4 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		9085D0851D58C5B30057F83C /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		9085D0891D58E2350057F83C /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
+		90F2B3871D649ADA00B08526 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				903EA9701C45C0D80086BBF4 /* Canvas.swift */,
 				9010537D1C0DEBC1000BB4B4 /* CustomColor.swift */,
 				903EA96E1C4463070086BBF4 /* ColorWheel.swift */,
+				90F2B3871D649ADA00B08526 /* Colors.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9010537E1C0DEBC1000BB4B4 /* CustomColor.swift in Sources */,
+				90F2B3881D649ADA00B08526 /* Colors.swift in Sources */,
 				901053641C035C81000BB4B4 /* DrawingViewController.swift in Sources */,
 				901053621C035C81000BB4B4 /* AppDelegate.swift in Sources */,
 				903EA9711C45C0D80086BBF4 /* Canvas.swift in Sources */,

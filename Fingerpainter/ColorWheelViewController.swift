@@ -47,9 +47,12 @@ class ColorWheelViewController: UIViewController {
     
     @IBAction func handleTapGesture(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(colorWheel)
-        selectedColor = colorWheel.colorAtPoint(point)
-        didSelectNewColor = true
-        drawPreview()
+        
+        if colorWheel.colorAtPoint(point) != UIColor.clearColor() {
+            selectedColor = colorWheel.colorAtPoint(point)
+            didSelectNewColor = true
+            drawPreview()
+        }
     }
     
     @IBAction func done(sender: UIBarButtonItem) {

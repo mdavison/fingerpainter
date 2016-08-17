@@ -20,6 +20,7 @@ class Panel: UIView {
     @IBOutlet weak var blackButton: UIButton!
     @IBOutlet weak var grayButton: UIButton!
     @IBOutlet weak var whiteButton: UIButton!
+    @IBOutlet weak var customColorButton: UIButton!
     
     @IBOutlet weak var panelButtonsView: UIView!
     @IBOutlet weak var colorsButton: UIButton!

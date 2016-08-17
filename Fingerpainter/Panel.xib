@@ -145,7 +145,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7e-VE-fp3">
                             <rect key="frame" x="0.0" y="44" width="556" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-mq-bSF">
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjK-mq-bSF">
                                     <rect key="frame" x="476" y="8" width="72" height="72"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="72" id="GRe-fJ-viv"/>
@@ -156,8 +156,8 @@
                                         <action selector="showColorWheel:" destination="-1" eventType="touchUpInside" id="wJU-gm-oFT"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
-                                    <rect key="frame" x="58" y="24" width="440" height="44"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
+                                    <rect key="frame" x="42" y="24" width="484" height="44"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-X7-3th">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
@@ -242,8 +242,8 @@
                                                 </button>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-lZ-r0W">
-                                            <rect key="frame" x="220" y="0.0" width="220" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-lZ-r0W">
+                                            <rect key="frame" x="220" y="0.0" width="264" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-fx-xoi">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -320,7 +320,32 @@
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="iVL-LX-fEa"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
+                                                    <rect key="frame" x="220" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="EPk-rv-jRm"/>
+                                                        <constraint firstAttribute="height" constant="44" id="fAw-bk-1LV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <state key="normal" title="☆">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <exclude reference="EPk-rv-jRm"/>
+                                                            <exclude reference="fAw-bk-1LV"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="customColorSelected:" destination="-1" eventType="touchUpInside" id="A7N-La-WAq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <exclude reference="6An-fl-6P9"/>
+                                                </mask>
+                                            </variation>
                                         </stackView>
                                     </subviews>
                                     <variation key="widthClass=compact" axis="vertical"/>
@@ -328,9 +353,11 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="mjK-mq-bSF" firstAttribute="leading" secondItem="RTi-bR-3aq" secondAttribute="trailing" constant="8" symbolic="YES" id="1DU-iU-nVf"/>
+                                <constraint firstItem="mjK-mq-bSF" firstAttribute="leading" secondItem="RTi-bR-3aq" secondAttribute="trailing" id="EWp-40-TDm"/>
                                 <constraint firstItem="RTi-bR-3aq" firstAttribute="leading" secondItem="O7e-VE-fp3" secondAttribute="leadingMargin" id="LfD-Fr-5Sa"/>
                                 <constraint firstAttribute="bottom" secondItem="RTi-bR-3aq" secondAttribute="bottom" constant="20" id="ZCj-Ua-hO8">
-                                    <variation key="widthClass=compact" constant="8"/>
+                                    <variation key="widthClass=compact" constant="3"/>
                                 </constraint>
                                 <constraint firstItem="mjK-mq-bSF" firstAttribute="bottom" secondItem="O7e-VE-fp3" secondAttribute="bottomMargin" id="egX-G8-JEj"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="mjK-mq-bSF" secondAttribute="trailing" id="fc4-Oh-AJ3">
@@ -347,6 +374,8 @@
                                 <mask key="constraints">
                                     <exclude reference="LfD-Fr-5Sa"/>
                                     <exclude reference="pIO-p0-vDA"/>
+                                    <exclude reference="1DU-iU-nVf"/>
+                                    <exclude reference="EWp-40-TDm"/>
                                     <exclude reference="guM-js-72Q"/>
                                 </mask>
                             </variation>
@@ -354,6 +383,8 @@
                                 <mask key="constraints">
                                     <include reference="LfD-Fr-5Sa"/>
                                     <exclude reference="o3K-yj-84u"/>
+                                    <exclude reference="1DU-iU-nVf"/>
+                                    <exclude reference="EWp-40-TDm"/>
                                     <exclude reference="fc4-Oh-AJ3"/>
                                     <include reference="guM-js-72Q"/>
                                 </mask>
@@ -542,6 +573,7 @@
                 <outlet property="brushesView" destination="6Ww-3Y-w4M" id="bpe-Qn-uv5"/>
                 <outlet property="colorsButton" destination="OAN-4Z-qON" id="bsm-N4-w4B"/>
                 <outlet property="colorsView" destination="O7e-VE-fp3" id="WVX-UX-JBo"/>
+                <outlet property="customColorButton" destination="6An-fl-6P9" id="tUQ-5a-4Z1"/>
                 <outlet property="grayButton" destination="pjz-C0-Khn" id="gfc-L8-Mfn"/>
                 <outlet property="greenButton" destination="UXW-r7-kq8" id="94J-rZ-shA"/>
                 <outlet property="opacityButton" destination="XmH-HV-8G0" id="HWf-1U-wL2"/>

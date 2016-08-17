@@ -37,30 +37,13 @@
                                     <constraint firstAttribute="height" constant="132" id="C9y-BO-yCJ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15m-RW-YLj">
-                                <rect key="frame" x="536" y="28" width="44" height="44"/>
-                                <accessibility key="accessibilityConfiguration" identifier=""/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="9aS-ml-aZt"/>
-                                    <constraint firstAttribute="height" constant="44" id="LJU-rp-4Yp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="♡">
-                                    <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="customColorSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="onU-bT-2dO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="15m-RW-YLj" firstAttribute="leading" secondItem="rIJ-29-NjT" secondAttribute="trailing" constant="-64" id="1cF-gn-joh"/>
                             <constraint firstItem="tGv-i9-Q3D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4kb-mv-KKg"/>
                             <constraint firstItem="tGv-i9-Q3D" firstAttribute="top" secondItem="ntX-Qm-4E8" secondAttribute="bottom" id="5Ij-cs-w5B"/>
                             <constraint firstItem="ntX-Qm-4E8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5Rq-zd-xn1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntX-Qm-4E8" secondAttribute="bottom" id="9e1-Pc-xVH"/>
-                            <constraint firstItem="15m-RW-YLj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="D5p-B4-PpT"/>
                             <constraint firstItem="ntX-Qm-4E8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="E3P-ap-3Ex"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIJ-29-NjT" secondAttribute="bottom" id="GVH-wR-7Ku"/>
                             <constraint firstItem="rIJ-29-NjT" firstAttribute="top" secondItem="ntX-Qm-4E8" secondAttribute="top" id="It0-2K-NQC"/>
@@ -69,12 +52,10 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ckK-7I-Mhf" secondAttribute="bottom" constant="8" symbolic="YES" id="ROU-oG-lgi"/>
                             <constraint firstAttribute="trailing" secondItem="tGv-i9-Q3D" secondAttribute="trailing" id="Ub2-2T-5I0"/>
                             <constraint firstItem="rIJ-29-NjT" firstAttribute="leading" secondItem="ntX-Qm-4E8" secondAttribute="leading" id="UjV-Yj-XZp"/>
-                            <constraint firstItem="15m-RW-YLj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WQe-oB-2hx"/>
                             <constraint firstItem="rIJ-29-NjT" firstAttribute="trailing" secondItem="ntX-Qm-4E8" secondAttribute="trailing" id="XHX-aS-T6y"/>
                             <constraint firstItem="rIJ-29-NjT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Yab-Xv-jjh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ckK-7I-Mhf" secondAttribute="trailing" id="aaA-lG-ahM"/>
                             <constraint firstItem="tGv-i9-Q3D" firstAttribute="top" secondItem="ckK-7I-Mhf" secondAttribute="bottom" id="aoI-Ym-FK7"/>
-                            <constraint firstItem="rIJ-29-NjT" firstAttribute="top" secondItem="15m-RW-YLj" secondAttribute="bottom" constant="-72" id="bpL-zz-U9n"/>
                             <constraint firstItem="ntX-Qm-4E8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e7X-ov-qUo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIJ-29-NjT" secondAttribute="bottom" id="fdC-cV-IEd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntX-Qm-4E8" secondAttribute="bottom" id="k02-Th-yYW"/>
@@ -90,8 +71,6 @@
                                 <exclude reference="It0-2K-NQC"/>
                                 <exclude reference="UjV-Yj-XZp"/>
                                 <exclude reference="XHX-aS-T6y"/>
-                                <exclude reference="bpL-zz-U9n"/>
-                                <exclude reference="1cF-gn-joh"/>
                                 <exclude reference="5Ij-cs-w5B"/>
                                 <exclude reference="aoI-Ym-FK7"/>
                                 <exclude reference="kSi-VG-lWG"/>
@@ -105,7 +84,6 @@
                     <navigationItem key="navigationItem" id="o2R-xy-qOK"/>
                     <connections>
                         <outlet property="canvas" destination="ntX-Qm-4E8" id="Ma3-E3-hQH"/>
-                        <outlet property="customColorButton" destination="15m-RW-YLj" id="BIA-u6-4Sg"/>
                         <outlet property="panelContainer" destination="tGv-i9-Q3D" id="5f0-5H-abU"/>
                         <outlet property="tempCanvas" destination="rIJ-29-NjT" id="kM9-JE-QDg"/>
                         <segue destination="8nh-2H-qon" kind="presentation" identifier="ShowColorWheel" id="7rE-MN-1xi"/>

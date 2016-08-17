@@ -8,11 +8,10 @@
 
 import UIKit
 
-class DrawingViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class DrawingViewController: UIViewController {
     
     @IBOutlet weak var canvas: UIImageView!
     @IBOutlet weak var tempCanvas: UIImageView!
-    @IBOutlet weak var customColorButton: UIButton!
     @IBOutlet weak var panelContainer: UIView!
     
     var lastPoint = CGPoint.zero
@@ -186,27 +185,7 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         }
     }
     
-    
-    // MARK: - UIPopoverPresentationControllerDelegate
-    
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        if let colorWheelViewController = popoverPresentationController.presentedViewController as? ColorWheelViewController {
-            canvasIsActive = true
-            if colorWheelViewController.didSelectNewColor {
-                toggleButton(customColorButton)
-                colorWheelViewControllerFinished(colorWheelViewController)
-            }
-        }
-    }
-    
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
-    }
-    
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
-    }
-    
+
     
     // MARK: - Actions
     
@@ -475,8 +454,8 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
     
     private func toggleButton(button: UIButton) {
         resetButtons()
-        if button == customColorButton {
-            button.setTitle("♥︎", forState: UIControlState.Normal)
+        if button == panel!.customColorButton {
+            panel!.customColorButton.setTitle("★", forState: UIControlState.Normal)
         } else {
             button.setTitle("◉", forState: UIControlState.Normal)
         }
@@ -493,13 +472,13 @@ class DrawingViewController: UIViewController, UIPopoverPresentationControllerDe
         panel!.yellowButton.setTitle("⚫︎", forState: UIControlState.Normal)
         panel!.whiteButton.setTitle("⚫︎", forState: UIControlState.Normal)
         panel!.purpleButton.setTitle("⚫︎", forState: UIControlState.Normal)
-        customColorButton.setTitle("♡", forState: UIControlState.Normal)
+        panel!.customColorButton.setTitle("☆", forState: UIControlState.Normal)
         setCustomColorButton()
     }
     
     private func setCustomColorButton() {
         if let customColor = customColor {
-            customColorButton.setTitleColor(customColor.color, forState: .Normal)
+            panel!.customColorButton.setTitleColor(customColor.color, forState: .Normal)
         }
     }
     
@@ -566,6 +545,8 @@ extension DrawingViewController: ColorWheelViewControllerDelegate {
             }
             
             setCustomColorButton()
+
+            toggleButton(panel!.customColorButton)
         }
     }
 }

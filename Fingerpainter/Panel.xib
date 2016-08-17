@@ -157,7 +157,7 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
-                                    <rect key="frame" x="36" y="24" width="484" height="44"/>
+                                    <rect key="frame" x="42" y="24" width="472" height="44"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-X7-3th">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
@@ -240,10 +240,32 @@
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="NbU-c0-RAa"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI0-he-CqQ">
+                                                    <rect key="frame" x="220" y="0.0" width="44" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="blue" label="Blue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="lNS-zn-rzN"/>
+                                                        <constraint firstAttribute="height" constant="44" id="tuv-OY-Ngm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" red="0.31764705879999999" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="aI0-he-CqQ"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="aI0-he-CqQ"/>
+                                                </mask>
+                                            </variation>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-lZ-r0W">
-                                            <rect key="frame" x="220" y="0.0" width="264" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-On-6Rf">
+                                            <rect key="frame" x="220" y="0.0" width="252" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-fx-xoi">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -321,19 +343,25 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
-                                                    <rect key="frame" x="220" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="220" y="0.0" width="32" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="EPk-rv-jRm"/>
-                                                        <constraint firstAttribute="height" constant="44" id="fAw-bk-1LV"/>
+                                                        <constraint firstAttribute="width" constant="44" id="QBu-Ww-aZw"/>
+                                                        <constraint firstAttribute="height" constant="44" id="mrV-zk-j9v"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                     <state key="normal" title="☆">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="QBu-Ww-aZw"/>
+                                                            <exclude reference="mrV-zk-j9v"/>
+                                                        </mask>
+                                                    </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="constraints">
-                                                            <exclude reference="EPk-rv-jRm"/>
-                                                            <exclude reference="fAw-bk-1LV"/>
+                                                            <include reference="QBu-Ww-aZw"/>
+                                                            <include reference="mrV-zk-j9v"/>
                                                         </mask>
                                                     </variation>
                                                     <connections>
@@ -343,12 +371,16 @@
                                             </subviews>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
-                                                    <exclude reference="6An-fl-6P9"/>
+                                                    <include reference="6An-fl-6P9"/>
                                                 </mask>
                                             </variation>
                                         </stackView>
                                     </subviews>
-                                    <variation key="widthClass=compact" axis="vertical"/>
+                                    <variation key="widthClass=compact" axis="vertical">
+                                        <mask key="subviews">
+                                            <include reference="XFo-On-6Rf"/>
+                                        </mask>
+                                    </variation>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

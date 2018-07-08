@@ -42,61 +42,118 @@ class Panel: UIView {
     @IBOutlet weak var opacityButton3: UIButton!
     
     
+//    func setSelectedPanelIcon(selectedButton: UIButton) {
+//        switch selectedButton {
+//        case colorsButton:
+//            colorsButton.setImage(UIImage(named: "ColorIconFilled"), forState: .Normal)
+//            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
+//            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        case brushesButton:
+//            brushesButton.setImage(UIImage(named: "BrushIconFilled"), forState: .Normal)
+//            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
+//            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        case opacityButton:
+//            opacityButton.setImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
+//            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
+//            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
+//        default:
+//            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
+//            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
+//            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        }
+//    }
     func setSelectedPanelIcon(selectedButton: UIButton) {
         switch selectedButton {
         case colorsButton:
-            colorsButton.setImage(UIImage(named: "ColorIconFilled"), forState: .Normal)
-            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
-            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            colorsButton.setImage(UIImage(named: "ColorIconFilled"), for: .normal)
+            brushesButton.setImage(UIImage(named: "BrushIcon"), for: .normal)
+            opacityButton.setImage(UIImage(named: "OpacityIcon"), for: .normal)
         case brushesButton:
-            brushesButton.setImage(UIImage(named: "BrushIconFilled"), forState: .Normal)
-            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
-            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            brushesButton.setImage(UIImage(named: "BrushIconFilled"), for: .normal)
+            colorsButton.setImage(UIImage(named: "ColorIcon"), for: .normal)
+            opacityButton.setImage(UIImage(named: "OpacityIcon"), for: .normal)
         case opacityButton:
-            opacityButton.setImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
-            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
-            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
+            opacityButton.setImage(UIImage(named: "OpacityIconFilled"), for: .normal)
+            brushesButton.setImage(UIImage(named: "BrushIcon"), for: .normal)
+            colorsButton.setImage(UIImage(named: "ColorIcon"), for: .normal)
         default:
-            brushesButton.setImage(UIImage(named: "BrushIcon"), forState: .Normal)
-            colorsButton.setImage(UIImage(named: "ColorIcon"), forState: .Normal)
-            opacityButton.setImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            brushesButton.setImage(UIImage(named: "BrushIcon"), for: .normal)
+            colorsButton.setImage(UIImage(named: "ColorIcon"), for: .normal)
+            opacityButton.setImage(UIImage(named: "OpacityIcon"), for: .normal)
         }
     }
     
+//    func setSelectedBrushIcon(selectedButton: UIButton) {
+//        resetBrushButtons()
+//
+//        switch selectedButton {
+//        case brushButton1:
+//            brushButton1.setImage(UIImage(named: "BrushButton1Selected"), forState: .Normal)
+//        case brushButton2:
+//            brushButton2.setImage(UIImage(named: "BrushButton2Selected"), forState: .Normal)
+//        case brushButton3:
+//            brushButton3.setImage(UIImage(named: "BrushButton3Selected"), forState: .Normal)
+//        case brushButton4:
+//            brushButton4.setImage(UIImage(named: "BrushButton4Selected"), forState: .Normal)
+//        case brushButton5:
+//            brushButton5.setImage(UIImage(named: "BrushButton5Selected"), forState: .Normal)
+//        default:
+//            break;
+//        }
+//    }
     func setSelectedBrushIcon(selectedButton: UIButton) {
         resetBrushButtons()
         
         switch selectedButton {
         case brushButton1:
-            brushButton1.setImage(UIImage(named: "BrushButton1Selected"), forState: .Normal)
+            brushButton1.setImage(UIImage(named: "BrushButton1Selected"), for: .normal)
         case brushButton2:
-            brushButton2.setImage(UIImage(named: "BrushButton2Selected"), forState: .Normal)
+            brushButton2.setImage(UIImage(named: "BrushButton2Selected"), for: .normal)
         case brushButton3:
-            brushButton3.setImage(UIImage(named: "BrushButton3Selected"), forState: .Normal)
+            brushButton3.setImage(UIImage(named: "BrushButton3Selected"), for: .normal)
         case brushButton4:
-            brushButton4.setImage(UIImage(named: "BrushButton4Selected"), forState: .Normal)
+            brushButton4.setImage(UIImage(named: "BrushButton4Selected"), for: .normal)
         case brushButton5:
-            brushButton5.setImage(UIImage(named: "BrushButton5Selected"), forState: .Normal)
+            brushButton5.setImage(UIImage(named: "BrushButton5Selected"), for: .normal)
         default:
             break;
         }
     }
     
+//    func setSelectedOpacityIcon(selectedButton: UIButton) {
+//
+//        switch selectedButton {
+//        case opacityButton1:
+//            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
+//            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        case opacityButton2:
+//            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
+//            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        case opacityButton3:
+//            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
+//            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+//        default:
+//            break;
+//        }
+//    }
     func setSelectedOpacityIcon(selectedButton: UIButton) {
         
         switch selectedButton {
         case opacityButton1:
-            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
-            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
-            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIconFilled"), for: .normal)
+            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
+            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
         case opacityButton2:
-            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
-            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
-            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIconFilled"), for: .normal)
+            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
+            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
         case opacityButton3:
-            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIconFilled"), forState: .Normal)
-            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
-            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), forState: .Normal)
+            opacityButton3.setBackgroundImage(UIImage(named: "OpacityIconFilled"), for: .normal)
+            opacityButton1.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
+            opacityButton2.setBackgroundImage(UIImage(named: "OpacityIcon"), for: .normal)
         default:
             break;
         }
@@ -105,11 +162,18 @@ class Panel: UIView {
     
     // MARK: - Helper Methods
     
+//    private func resetBrushButtons() {
+//        brushButton1.setImage(UIImage(named: "BrushButton1"), forState: .Normal)
+//        brushButton2.setImage(UIImage(named: "BrushButton2"), forState: .Normal)
+//        brushButton3.setImage(UIImage(named: "BrushButton3"), forState: .Normal)
+//        brushButton4.setImage(UIImage(named: "BrushButton4"), forState: .Normal)
+//        brushButton5.setImage(UIImage(named: "BrushButton5"), forState: .Normal)
+//    }
     private func resetBrushButtons() {
-        brushButton1.setImage(UIImage(named: "BrushButton1"), forState: .Normal)
-        brushButton2.setImage(UIImage(named: "BrushButton2"), forState: .Normal)
-        brushButton3.setImage(UIImage(named: "BrushButton3"), forState: .Normal)
-        brushButton4.setImage(UIImage(named: "BrushButton4"), forState: .Normal)
-        brushButton5.setImage(UIImage(named: "BrushButton5"), forState: .Normal)
+        brushButton1.setImage(UIImage(named: "BrushButton1"), for: .normal)
+        brushButton2.setImage(UIImage(named: "BrushButton2"), for: .normal)
+        brushButton3.setImage(UIImage(named: "BrushButton3"), for: .normal)
+        brushButton4.setImage(UIImage(named: "BrushButton4"), for: .normal)
+        brushButton5.setImage(UIImage(named: "BrushButton5"), for: .normal)
     }
 }

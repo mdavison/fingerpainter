@@ -10,18 +10,48 @@ import UIKit
 
 class CustomColor: NSObject, NSCoding {
 
-    var color = UIColor.blackColor()
+//    var color = UIColor.blackColor()
+//
+//    // MARK: Archiving Paths
+//
+//    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+//    //static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("customcolor")
+//    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("custom-color")
+//
+//    struct PropertyKey {
+//        static let colorKey = "uicolor"
+//    }
+//
+//    init?(color: UIColor) {
+//        self.color = color
+//
+//        super.init()
+//    }
+//
+//    required convenience init?(coder aDecoder: NSCoder) {
+//        let color = aDecoder.decodeObjectForKey(PropertyKey.colorKey) as! UIColor
+//
+//        self.init(color: color)
+//    }
+//
+//
+//    // MARK: NSCoding
+//
+//    func encodeWithCoder(aCoder: NSCoder) {
+//        aCoder.encodeObject(color, forKey: PropertyKey.colorKey)
+//    }
+
+    var color = UIColor.black
     
     // MARK: Archiving Paths
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    //static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("customcolor")
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("custom-color")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("custom-color")
     
     struct PropertyKey {
         static let colorKey = "uicolor"
     }
-
+    
     init?(color: UIColor) {
         self.color = color
         
@@ -29,16 +59,14 @@ class CustomColor: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let color = aDecoder.decodeObjectForKey(PropertyKey.colorKey) as! UIColor
+        let color = aDecoder.decodeObject(forKey: PropertyKey.colorKey) as! UIColor
         
         self.init(color: color)
     }
     
-    
     // MARK: NSCoding
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(color, forKey: PropertyKey.colorKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(color, forKey: PropertyKey.colorKey)
     }
-
 }

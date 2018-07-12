@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawingViewController" customModule="Fingerpainter" customModuleProvider="target"/>
@@ -85,7 +89,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="AVV-66-dLd" secondAttribute="bottom" constant="20" id="57F-JP-QTS"/>
                                 <constraint firstItem="AVV-66-dLd" firstAttribute="centerX" secondItem="6Ww-3Y-w4M" secondAttribute="centerX" id="fQ6-US-MZb"/>
@@ -136,7 +140,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="EfH-Qe-Tsv" firstAttribute="centerX" secondItem="aBy-44-mSb" secondAttribute="centerX" id="bNd-kg-qfa"/>
                                 <constraint firstAttribute="bottom" secondItem="EfH-Qe-Tsv" secondAttribute="bottom" constant="20" id="lIl-Gg-7Sr"/>
@@ -157,21 +161,21 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
-                                    <rect key="frame" x="42" y="24" width="472" height="44"/>
+                                    <rect key="frame" x="42" y="24" width="473" height="44"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-X7-3th">
                                             <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jy-6Y-KZ4">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="purple" label="Purple"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="red" label="Red"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="hAv-aR-m9R"/>
                                                         <constraint firstAttribute="height" constant="44" id="zAX-S9-Pmb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="1" green="0.2666666667" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="0.2666666667" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="3Q7-C6-n5n"/>
@@ -179,14 +183,14 @@
                                                 </button>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7a-Bx-Q8P">
                                                     <rect key="frame" x="44" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="black" label="Black"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="orange" label="Orange"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="Iiv-NA-o22"/>
                                                         <constraint firstAttribute="height" constant="44" id="Qhl-g0-d0l"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="1" green="0.51764705879999995" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="0.51764705879999995" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <state key="highlighted" title="◉"/>
                                                     <connections>
@@ -195,7 +199,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-mx-KS7">
                                                     <rect key="frame" x="88" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="gray" label="Gray"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="yellow" label="Yellow"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="2s8-rD-FTU"/>
                                                         <constraint firstAttribute="width" constant="44" id="o05-Gb-0ox">
@@ -204,7 +208,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="1" green="0.90196078430000004" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="0.90196078430000004" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="FFd-VZ-tvQ"/>
@@ -212,14 +216,14 @@
                                                 </button>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXW-r7-kq8">
                                                     <rect key="frame" x="132" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="red" label="Red"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="green" label="Green"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="6ZG-dM-CYo"/>
                                                         <constraint firstAttribute="height" constant="44" id="OJK-x4-H86"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.58561346999999997" green="1" blue="0.48119215370000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.58561346999999997" green="1" blue="0.48119215370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="ayb-C1-mmT"/>
@@ -234,7 +238,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.31764705879999999" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.31764705879999999" green="0.67450980390000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="NbU-c0-RAa"/>
@@ -249,7 +253,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal">
-                                                        <color key="titleColor" red="0.31764705879999999" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.31764705879999999" green="0.67450980390000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
@@ -265,18 +269,18 @@
                                             </variation>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-On-6Rf">
-                                            <rect key="frame" x="220" y="0.0" width="252" height="44"/>
+                                            <rect key="frame" x="220" y="0.0" width="253" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-fx-xoi">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="green" label="Green"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="purple" label="Purple"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="bBF-7E-A5M"/>
                                                         <constraint firstAttribute="height" constant="44" id="jGS-5R-rvi"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.65490196079999996" green="0.33333333329999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.65490196079999996" green="0.33333333329999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="zWC-5v-Xd2"/>
@@ -284,14 +288,14 @@
                                                 </button>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMD-2u-3gh">
                                                     <rect key="frame" x="44" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="orange" label="Orange"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="brown" label="Brown"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="6XU-KN-wt6"/>
                                                         <constraint firstAttribute="height" constant="44" id="GG0-57-XgR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.50196078430000002" green="0.2470588235" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.2470588235" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="YKH-M3-gON"/>
@@ -299,14 +303,14 @@
                                                 </button>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL9-sJ-0Qr">
                                                     <rect key="frame" x="88" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="brown" label="Brown"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="black" label="Black"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Xij-3N-Zhi"/>
                                                         <constraint firstAttribute="width" constant="44" id="xvL-QR-Bv7"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="jQ4-Mh-OL2"/>
@@ -314,14 +318,14 @@
                                                 </button>
                                                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjz-C0-Khn">
                                                     <rect key="frame" x="132" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="yellow" label="Yellow"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="gray" label="Gray"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="MJc-Sa-veI"/>
                                                         <constraint firstAttribute="height" constant="44" id="R8Y-WS-7Dv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="qyb-zR-ggU"/>
@@ -336,21 +340,22 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                                     <state key="normal" title="⚫︎">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="colorChanged:" destination="-1" eventType="touchUpInside" id="iVL-LX-fEa"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
-                                                    <rect key="frame" x="220" y="0.0" width="32" height="44"/>
+                                                    <rect key="frame" x="220" y="0.0" width="33" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Choose your color" identifier="custom" label="Custom"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="QBu-Ww-aZw"/>
                                                         <constraint firstAttribute="height" constant="44" id="mrV-zk-j9v"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                     <state key="normal" title="☆">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -383,7 +388,7 @@
                                     </variation>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="mjK-mq-bSF" firstAttribute="leading" secondItem="RTi-bR-3aq" secondAttribute="trailing" constant="8" symbolic="YES" id="1DU-iU-nVf"/>
                                 <constraint firstItem="mjK-mq-bSF" firstAttribute="leading" secondItem="RTi-bR-3aq" secondAttribute="trailing" id="EWp-40-TDm"/>
@@ -464,7 +469,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="0UR-F8-w1O"/>
                                 <constraint firstAttribute="width" constant="70" id="FWx-2Z-UxV"/>
@@ -494,6 +499,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-FX-fF8">
                                     <rect key="frame" x="3" y="10" width="37" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="HidePanel"/>
                                     <connections>
                                         <action selector="hidePanel:" destination="-1" eventType="touchUpInside" id="kJY-1v-5o2"/>
@@ -501,6 +507,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEt-Ms-CuU">
                                     <rect key="frame" x="-8" y="53" width="62" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="SaveIcon"/>
                                     <connections>
                                         <action selector="save:" destination="-1" eventType="touchUpInside" id="8GR-gm-Vl1"/>
@@ -508,6 +515,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXL-ya-9MM">
                                     <rect key="frame" x="11" y="96" width="25" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="ClearIcon"/>
                                     <connections>
                                         <action selector="clearCanvas:" destination="-1" eventType="touchUpInside" id="uPy-zV-lcL"/>
@@ -519,7 +527,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="O7e-VE-fp3" secondAttribute="bottom" id="2F2-Kq-ATe"/>
                         <constraint firstItem="u6o-ZZ-zFk" firstAttribute="leading" secondItem="aBy-44-mSb" secondAttribute="trailing" id="5fV-GG-jh1"/>
@@ -581,7 +589,7 @@
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="vKe-5I-NR0" secondAttribute="trailing" id="U3e-oH-J2H"/>
                 <constraint firstItem="vKe-5I-NR0" firstAttribute="leading" secondItem="zGD-JC-chM" secondAttribute="leading" id="W35-OH-0te"/>

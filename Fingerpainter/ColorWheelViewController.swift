@@ -42,30 +42,36 @@ class ColorWheelViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.setNeedsDisplay()
+        super.view.setNeedsDisplay()
+        preferredContentSizeDidChange(forChildContentContainer: self)
+    }
+    
     
     // MARK: - Actions
     
-    @IBAction func handleTapGesture(sender: UITapGestureRecognizer) {
-        let point = sender.locationInView(colorWheel)
+    @IBAction func handleTapGesture(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: colorWheel)
         
-        if colorWheel.colorAtPoint(point) != UIColor.clearColor() {
-            selectedColor = colorWheel.colorAtPoint(point)
+        if colorWheel.colorAtPoint(point: point) != UIColor.clear {
+            selectedColor = colorWheel.colorAtPoint(point: point)
             didSelectNewColor = true
             drawPreview()
         }
     }
     
-    @IBAction func done(sender: UIBarButtonItem) {
-        delegate?.colorWheelViewControllerFinished(self)
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        delegate?.colorWheelViewControllerFinished(colorWheelViewController: self)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: - Private methods
     
     private func drawPreview() {
-        var color = UIColor.lightGrayColor()
+        var color = UIColor.lightGray
         if let selectedColor = selectedColor {
             color = selectedColor
         }
@@ -77,12 +83,12 @@ class ColorWheelViewController: UIViewController {
         UIGraphicsBeginImageContext(colorPreview.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, radius)
-        CGContextSetStrokeColorWithColor(context, color.CGColor)
-        CGContextMoveToPoint(context, offset, offset)
-        CGContextAddLineToPoint(context, offset, offset)
-        CGContextStrokePath(context)
+        context?.setLineCap(CGLineCap.round)
+        context?.setLineWidth(radius)
+        context?.setStrokeColor(color.cgColor)
+        context?.move(to: CGPoint(x: offset, y: offset))
+        context?.addLine(to: CGPoint(x: offset, y: offset))
+        context?.strokePath()
         
         colorPreview.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

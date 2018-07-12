@@ -13,9 +13,8 @@ class Canvas: NSObject, NSCoding {
     var image: UIImage?
     
     // MARK: Archiving Paths
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("canvas")
-    //let archiveURL = ArchiveURL
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("canvas")
     
     struct PropertyKey {
         static let imageKey = "image"
@@ -28,15 +27,13 @@ class Canvas: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let image = aDecoder.decodeObjectForKey(PropertyKey.imageKey) as! UIImage
+        let image = aDecoder.decodeObject(forKey: PropertyKey.imageKey) as! UIImage
         
         self.init(image: image)
     }
     
-    
     // MARK: NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(image, forKey: PropertyKey.imageKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(image, forKey: PropertyKey.imageKey)
     }
-    
 }

@@ -33,18 +33,9 @@ class ColorWheel: UIView {
     var paths=[ColorPath]()
     
     
-    //@IBInspectable var size:CGSize=CGSizeZero { didSet { setNeedsDisplay()} }
     @IBInspectable var size:CGSize = CGSize.zero { didSet { setNeedsDisplay() } }
     @IBInspectable var sectors:Int = 360 { didSet { setNeedsDisplay()} }
     
-//    func colorAtPoint ( point: CGPoint) -> UIColor {
-//        for colorPath in 0..<paths.count {
-//            if paths[colorPath].Path.containsPoint(point) {
-//                return paths[colorPath].Color
-//            }
-//        }
-//        return UIColor.clearColor()
-//    }
     func colorAtPoint (point: CGPoint) -> UIColor {
         for colorPath in 0..<paths.count {
             if paths[colorPath].Path.contains(point) {
@@ -54,45 +45,6 @@ class ColorWheel: UIView {
         return UIColor.clear
     }
     
-
-//    override func drawRect(rect: CGRect) {
-//
-//        let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) * 0.90
-//        let angle:CGFloat = CGFloat(2.0) * CGFloat (M_PI) / CGFloat(sectors)
-//        var colorPath:ColorPath = ColorPath(Path: UIBezierPath(), Color: UIColor.clearColor())
-//
-//        self.center = CGPointMake( self.bounds.width - (self.bounds.width / 2.0), self.bounds.height - (self.bounds.height / 2.0) )
-//
-//        UIGraphicsBeginImageContextWithOptions(CGSizeMake(bounds.size.width, bounds.size.height),true, 0)
-//        UIColor.whiteColor().setFill()
-//        UIRectFill(frame)
-//
-//        for sector in 0..<sectors {
-//
-//            let center = self.center
-//
-//            colorPath.Path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(sector) * angle, endAngle: (CGFloat(sector) + CGFloat(1)) * angle, clockwise: true)
-//            colorPath.Path.addLineToPoint(center)
-//            colorPath.Path.closePath()
-//
-//            let color = UIColor(hue: CGFloat(sector)/CGFloat(sectors), saturation: CGFloat(1), brightness: CGFloat(1), alpha: CGFloat(1))
-//            color.setFill()
-//            color.setStroke()
-//
-//            colorPath.Path.fill()
-//            colorPath.Path.stroke()
-//            colorPath.Color = color
-//
-//            paths.append(colorPath)
-//        }
-//
-//        image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//
-//        imageView = UIImageView (image: image)
-//        self.addSubview(imageView!)
-//
-//    }
     override func draw(_ rect: CGRect) {
         let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) * 0.90
         let angle: CGFloat = CGFloat(2.0) * CGFloat(Double.pi) / CGFloat(sectors)

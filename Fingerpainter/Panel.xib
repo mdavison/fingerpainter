@@ -160,7 +160,7 @@
                                         <action selector="showColorWheel:" destination="-1" eventType="touchUpInside" id="wJU-gm-oFT"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RTi-bR-3aq">
                                     <rect key="frame" x="42" y="24" width="473" height="44"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-X7-3th">
@@ -168,7 +168,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jy-6Y-KZ4">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="purple" label="Purple"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="red" label="Red"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="hAv-aR-m9R"/>
                                                         <constraint firstAttribute="height" constant="44" id="zAX-S9-Pmb"/>
@@ -183,7 +183,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7a-Bx-Q8P">
                                                     <rect key="frame" x="44" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="black" label="Black"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="orange" label="Orange"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="Iiv-NA-o22"/>
                                                         <constraint firstAttribute="height" constant="44" id="Qhl-g0-d0l"/>
@@ -199,7 +199,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiA-mx-KS7">
                                                     <rect key="frame" x="88" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="gray" label="Gray"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="yellow" label="Yellow"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="2s8-rD-FTU"/>
                                                         <constraint firstAttribute="width" constant="44" id="o05-Gb-0ox">
@@ -216,7 +216,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXW-r7-kq8">
                                                     <rect key="frame" x="132" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="red" label="Red"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="green" label="Green"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="6ZG-dM-CYo"/>
                                                         <constraint firstAttribute="height" constant="44" id="OJK-x4-H86"/>
@@ -273,7 +273,7 @@
                                             <subviews>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-fx-xoi">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="green" label="Green"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="purple" label="Purple"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="bBF-7E-A5M"/>
                                                         <constraint firstAttribute="height" constant="44" id="jGS-5R-rvi"/>
@@ -288,7 +288,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMD-2u-3gh">
                                                     <rect key="frame" x="44" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="orange" label="Orange"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="brown" label="Brown"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="6XU-KN-wt6"/>
                                                         <constraint firstAttribute="height" constant="44" id="GG0-57-XgR"/>
@@ -303,7 +303,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL9-sJ-0Qr">
                                                     <rect key="frame" x="88" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="brown" label="Brown"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="black" label="Black"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Xij-3N-Zhi"/>
                                                         <constraint firstAttribute="width" constant="44" id="xvL-QR-Bv7"/>
@@ -318,7 +318,7 @@
                                                 </button>
                                                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjz-C0-Khn">
                                                     <rect key="frame" x="132" y="0.0" width="44" height="44"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="yellow" label="Yellow"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="gray" label="Gray"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="MJc-Sa-veI"/>
                                                         <constraint firstAttribute="height" constant="44" id="R8Y-WS-7Dv"/>
@@ -348,6 +348,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6An-fl-6P9">
                                                     <rect key="frame" x="220" y="0.0" width="33" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" hint="Choose your color" identifier="custom" label="Custom"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="QBu-Ww-aZw"/>
                                                         <constraint firstAttribute="height" constant="44" id="mrV-zk-j9v"/>

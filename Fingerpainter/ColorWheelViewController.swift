@@ -42,18 +42,16 @@ class ColorWheelViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.setNeedsDisplay()
+        super.view.setNeedsDisplay()
+        preferredContentSizeDidChange(forChildContentContainer: self)
+    }
+    
     
     // MARK: - Actions
     
     @IBAction func handleTapGesture(_ sender: UITapGestureRecognizer) {
-//        let point = sender.locationInView(colorWheel)
-//
-//        if colorWheel.colorAtPoint(point) != UIColor.clearColor() {
-//            selectedColor = colorWheel.colorAtPoint(point)
-//            didSelectNewColor = true
-//            drawPreview()
-//        }
-        
         let point = sender.location(in: colorWheel)
         
         if colorWheel.colorAtPoint(point: point) != UIColor.clear {
@@ -64,10 +62,6 @@ class ColorWheelViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: UIBarButtonItem) {
-//        delegate?.colorWheelViewControllerFinished(self)
-//
-//        dismissViewControllerAnimated(true, completion: nil)
-        
         delegate?.colorWheelViewControllerFinished(colorWheelViewController: self)
         
         dismiss(animated: true, completion: nil)
@@ -76,29 +70,6 @@ class ColorWheelViewController: UIViewController {
     
     // MARK: - Private methods
     
-//    private func drawPreview() {
-//        var color = UIColor.lightGrayColor()
-//        if let selectedColor = selectedColor {
-//            color = selectedColor
-//        }
-//
-//        // Brush Width
-//        let radius = CGFloat(50.0)
-//        let offset = radius - 10 // Need to offset to center
-//
-//        UIGraphicsBeginImageContext(colorPreview.frame.size)
-//        let context = UIGraphicsGetCurrentContext()
-//
-//        CGContextSetLineCap(context, CGLineCap.Round)
-//        CGContextSetLineWidth(context, radius)
-//        CGContextSetStrokeColorWithColor(context, color.CGColor)
-//        CGContextMoveToPoint(context, offset, offset)
-//        CGContextAddLineToPoint(context, offset, offset)
-//        CGContextStrokePath(context)
-//
-//        colorPreview.image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//    }
     private func drawPreview() {
         var color = UIColor.lightGray
         if let selectedColor = selectedColor {

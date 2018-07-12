@@ -109,9 +109,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP1-N8-wBh" customClass="ColorWheel" customModule="Fingerpainter" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpu-ur-03S" userLabel="Color Wheel Container">
                                 <rect key="frame" x="20" y="160" width="728" height="856"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wP1-N8-wBh" customClass="ColorWheel" customModule="Fingerpainter" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="712" height="840"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="color-wheel" label="Color Wheel"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wP1-N8-wBh" firstAttribute="top" secondItem="Rpu-ur-03S" secondAttribute="topMargin" id="2CY-Fi-8aT"/>
+                                    <constraint firstItem="wP1-N8-wBh" firstAttribute="centerX" secondItem="Rpu-ur-03S" secondAttribute="centerX" id="2Qt-aR-6sJ"/>
+                                    <constraint firstItem="wP1-N8-wBh" firstAttribute="leading" secondItem="Rpu-ur-03S" secondAttribute="leadingMargin" id="JHn-Q6-yLb"/>
+                                    <constraint firstItem="wP1-N8-wBh" firstAttribute="centerY" secondItem="Rpu-ur-03S" secondAttribute="centerY" id="R75-vw-hhr"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="wP1-N8-wBh" secondAttribute="bottom" id="SKt-yY-mBl"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="wP1-N8-wBh" secondAttribute="trailing" id="XJt-aq-dZD"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QD6-ce-Tr6">
                                 <rect key="frame" x="344" y="72" width="80" height="80"/>
@@ -124,12 +139,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="wP1-N8-wBh" firstAttribute="leading" secondItem="2K9-Jj-jct" secondAttribute="leadingMargin" id="29s-9f-Je3"/>
                             <constraint firstItem="QD6-ce-Tr6" firstAttribute="centerX" secondItem="2K9-Jj-jct" secondAttribute="centerX" id="5CI-HG-hKM"/>
-                            <constraint firstItem="5HW-51-4UK" firstAttribute="top" secondItem="wP1-N8-wBh" secondAttribute="bottom" constant="8" symbolic="YES" id="Bfg-li-m79"/>
                             <constraint firstItem="QD6-ce-Tr6" firstAttribute="top" secondItem="u9G-Nj-apO" secondAttribute="bottom" constant="8" id="GeY-vp-JMX"/>
-                            <constraint firstItem="wP1-N8-wBh" firstAttribute="top" secondItem="QD6-ce-Tr6" secondAttribute="bottom" constant="8" id="I7X-cd-6g6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wP1-N8-wBh" secondAttribute="trailing" id="ze4-c1-qXf"/>
+                            <constraint firstItem="Rpu-ur-03S" firstAttribute="top" secondItem="QD6-ce-Tr6" secondAttribute="bottom" constant="8" symbolic="YES" id="O8l-cb-M95"/>
+                            <constraint firstItem="Rpu-ur-03S" firstAttribute="centerX" secondItem="2K9-Jj-jct" secondAttribute="centerX" id="VfK-J2-YBL"/>
+                            <constraint firstItem="5HW-51-4UK" firstAttribute="top" secondItem="Rpu-ur-03S" secondAttribute="bottom" constant="8" symbolic="YES" id="VgL-up-xad"/>
+                            <constraint firstItem="Rpu-ur-03S" firstAttribute="leading" secondItem="2K9-Jj-jct" secondAttribute="leadingMargin" id="mHg-b4-jur"/>
+                            <constraint firstItem="Rpu-ur-03S" firstAttribute="trailing" secondItem="2K9-Jj-jct" secondAttribute="trailingMargin" id="z0e-UC-VrO"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="O6K-7H-U8e" appends="YES" id="J56-vA-Gfz"/>
@@ -154,7 +170,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1469" y="1105"/>
+            <point key="canvasLocation" x="1468.359375" y="1103.90625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7xi-JT-xMO">

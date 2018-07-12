@@ -18,8 +18,34 @@
 		903EA9711C45C0D80086BBF4 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903EA9701C45C0D80086BBF4 /* Canvas.swift */; };
 		9085D0861D58C5B30057F83C /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9085D0851D58C5B30057F83C /* Panel.swift */; };
 		9085D08A1D58E2350057F83C /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9085D0891D58E2350057F83C /* Panel.xib */; };
+		90D9AA1020F42B7A0019BE87 /* FingerpainterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D9AA0F20F42B7A0019BE87 /* FingerpainterTests.swift */; };
+		90D9AA2020F42C3E0019BE87 /* FingerpainterUITestsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D9AA1F20F42C3E0019BE87 /* FingerpainterUITestsMain.swift */; };
 		90F2B3881D649ADA00B08526 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B3871D649ADA00B08526 /* Colors.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90D9AA0420F42AFE0019BE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 901053561C035C81000BB4B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9010535D1C035C81000BB4B4;
+			remoteInfo = Fingerpainter;
+		};
+		90D9AA1220F42B7A0019BE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 901053561C035C81000BB4B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9010535D1C035C81000BB4B4;
+			remoteInfo = Fingerpainter;
+		};
+		90D9AA2220F42C3E0019BE87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 901053561C035C81000BB4B4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9010535D1C035C81000BB4B4;
+			remoteInfo = Fingerpainter;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9010535E1C035C81000BB4B4 /* Fingerpainter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fingerpainter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,11 +61,39 @@
 		903EA9701C45C0D80086BBF4 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		9085D0851D58C5B30057F83C /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		9085D0891D58E2350057F83C /* Panel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
+		90D9A9FF20F42AFE0019BE87 /* FingerpainterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FingerpainterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D9AA0D20F42B790019BE87 /* FingerpainterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FingerpainterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D9AA0F20F42B7A0019BE87 /* FingerpainterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerpainterTests.swift; sourceTree = "<group>"; };
+		90D9AA1120F42B7A0019BE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90D9AA1D20F42C3E0019BE87 /* FingerpainterUITestsMain.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FingerpainterUITestsMain.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D9AA1F20F42C3E0019BE87 /* FingerpainterUITestsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerpainterUITestsMain.swift; sourceTree = "<group>"; };
+		90D9AA2120F42C3E0019BE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90F2B3871D649ADA00B08526 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9010535B1C035C81000BB4B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9A9FC20F42AFE0019BE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA0A20F42B790019BE87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA1A20F42C3E0019BE87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				901053601C035C81000BB4B4 /* Fingerpainter */,
+				90D9AA0E20F42B7A0019BE87 /* FingerpainterTests */,
+				90D9AA1E20F42C3E0019BE87 /* FingerpainterUITestsMain */,
 				9010535F1C035C81000BB4B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				9010535E1C035C81000BB4B4 /* Fingerpainter.app */,
+				90D9A9FF20F42AFE0019BE87 /* FingerpainterUITests.xctest */,
+				90D9AA0D20F42B790019BE87 /* FingerpainterTests.xctest */,
+				90D9AA1D20F42C3E0019BE87 /* FingerpainterUITestsMain.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +152,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		90D9AA0E20F42B7A0019BE87 /* FingerpainterTests */ = {
+			isa = PBXGroup;
+			children = (
+				90D9AA0F20F42B7A0019BE87 /* FingerpainterTests.swift */,
+				90D9AA1120F42B7A0019BE87 /* Info.plist */,
+			);
+			path = FingerpainterTests;
+			sourceTree = "<group>";
+		};
+		90D9AA1E20F42C3E0019BE87 /* FingerpainterUITestsMain */ = {
+			isa = PBXGroup;
+			children = (
+				90D9AA1F20F42C3E0019BE87 /* FingerpainterUITestsMain.swift */,
+				90D9AA2120F42C3E0019BE87 /* Info.plist */,
+			);
+			path = FingerpainterUITestsMain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,19 +190,91 @@
 			productReference = 9010535E1C035C81000BB4B4 /* Fingerpainter.app */;
 			productType = "com.apple.product-type.application";
 		};
+		90D9A9FE20F42AFE0019BE87 /* FingerpainterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90D9AA0620F42AFE0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterUITests" */;
+			buildPhases = (
+				90D9A9FB20F42AFE0019BE87 /* Sources */,
+				90D9A9FC20F42AFE0019BE87 /* Frameworks */,
+				90D9A9FD20F42AFE0019BE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90D9AA0520F42AFE0019BE87 /* PBXTargetDependency */,
+			);
+			name = FingerpainterUITests;
+			productName = FingerpainterUITests;
+			productReference = 90D9A9FF20F42AFE0019BE87 /* FingerpainterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		90D9AA0C20F42B790019BE87 /* FingerpainterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90D9AA1420F42B7A0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterTests" */;
+			buildPhases = (
+				90D9AA0920F42B790019BE87 /* Sources */,
+				90D9AA0A20F42B790019BE87 /* Frameworks */,
+				90D9AA0B20F42B790019BE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90D9AA1320F42B7A0019BE87 /* PBXTargetDependency */,
+			);
+			name = FingerpainterTests;
+			productName = FingerpainterTests;
+			productReference = 90D9AA0D20F42B790019BE87 /* FingerpainterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		90D9AA1C20F42C3E0019BE87 /* FingerpainterUITestsMain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90D9AA2420F42C3E0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterUITestsMain" */;
+			buildPhases = (
+				90D9AA1920F42C3E0019BE87 /* Sources */,
+				90D9AA1A20F42C3E0019BE87 /* Frameworks */,
+				90D9AA1B20F42C3E0019BE87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90D9AA2320F42C3E0019BE87 /* PBXTargetDependency */,
+			);
+			name = FingerpainterUITestsMain;
+			productName = FingerpainterUITestsMain;
+			productReference = 90D9AA1D20F42C3E0019BE87 /* FingerpainterUITestsMain.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		901053561C035C81000BB4B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Morgan Davison";
 				TargetAttributes = {
 					9010535D1C035C81000BB4B4 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 2TEP68NZCD;
+					};
+					90D9A9FE20F42AFE0019BE87 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = 2TEP68NZCD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9010535D1C035C81000BB4B4;
+					};
+					90D9AA0C20F42B790019BE87 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = 2TEP68NZCD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9010535D1C035C81000BB4B4;
+					};
+					90D9AA1C20F42C3E0019BE87 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = 2TEP68NZCD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9010535D1C035C81000BB4B4;
 					};
 				};
 			};
@@ -143,6 +292,9 @@
 			projectRoot = "";
 			targets = (
 				9010535D1C035C81000BB4B4 /* Fingerpainter */,
+				90D9A9FE20F42AFE0019BE87 /* FingerpainterUITests */,
+				90D9AA0C20F42B790019BE87 /* FingerpainterTests */,
+				90D9AA1C20F42C3E0019BE87 /* FingerpainterUITestsMain */,
 			);
 		};
 /* End PBXProject section */
@@ -156,6 +308,27 @@
 				901053691C035C81000BB4B4 /* Assets.xcassets in Resources */,
 				9085D08A1D58E2350057F83C /* Panel.xib in Resources */,
 				901053671C035C81000BB4B4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9A9FD20F42AFE0019BE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA0B20F42B790019BE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA1B20F42C3E0019BE87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +350,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90D9A9FB20F42AFE0019BE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA0920F42B790019BE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90D9AA1020F42B7A0019BE87 /* FingerpainterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9AA1920F42C3E0019BE87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90D9AA2020F42C3E0019BE87 /* FingerpainterUITestsMain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90D9AA0520F42AFE0019BE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9010535D1C035C81000BB4B4 /* Fingerpainter */;
+			targetProxy = 90D9AA0420F42AFE0019BE87 /* PBXContainerItemProxy */;
+		};
+		90D9AA1320F42B7A0019BE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9010535D1C035C81000BB4B4 /* Fingerpainter */;
+			targetProxy = 90D9AA1220F42B7A0019BE87 /* PBXContainerItemProxy */;
+		};
+		90D9AA2320F42C3E0019BE87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9010535D1C035C81000BB4B4 /* Fingerpainter */;
+			targetProxy = 90D9AA2220F42C3E0019BE87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		901053651C035C81000BB4B4 /* Main.storyboard */ = {
@@ -207,13 +421,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -235,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -253,13 +477,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -275,9 +509,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -314,6 +549,158 @@
 			};
 			name = Release;
 		};
+		90D9AA0720F42AFE0019BE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fingerpainter;
+			};
+			name = Debug;
+		};
+		90D9AA0820F42AFE0019BE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fingerpainter;
+			};
+			name = Release;
+		};
+		90D9AA1520F42B7A0019BE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fingerpainter.app/Fingerpainter";
+			};
+			name = Debug;
+		};
+		90D9AA1620F42B7A0019BE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fingerpainter.app/Fingerpainter";
+			};
+			name = Release;
+		};
+		90D9AA2520F42C3E0019BE87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterUITestsMain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterUITestsMain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fingerpainter;
+			};
+			name = Debug;
+		};
+		90D9AA2620F42C3E0019BE87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2TEP68NZCD;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FingerpainterUITestsMain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.morgandavison.FingerpainterUITestsMain;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fingerpainter;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +718,33 @@
 			buildConfigurations = (
 				901053711C035C81000BB4B4 /* Debug */,
 				901053721C035C81000BB4B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90D9AA0620F42AFE0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D9AA0720F42AFE0019BE87 /* Debug */,
+				90D9AA0820F42AFE0019BE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90D9AA1420F42B7A0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D9AA1520F42B7A0019BE87 /* Debug */,
+				90D9AA1620F42B7A0019BE87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90D9AA2420F42C3E0019BE87 /* Build configuration list for PBXNativeTarget "FingerpainterUITestsMain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D9AA2520F42C3E0019BE87 /* Debug */,
+				90D9AA2620F42C3E0019BE87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
